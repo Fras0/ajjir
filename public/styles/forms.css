@@ -1,0 +1,125 @@
+body {
+  background-image: url("../images/background.png");
+  text-align: center;
+}
+
+h1 {
+  font-weight: lighter;
+  font-size: 70px;
+  margin: 0;
+}
+
+form {
+  margin: auto;
+  padding-bottom: 0.5rem;
+  width: 25rem;
+  background-color: rgba(247, 225, 172, 0.08);
+  backdrop-filter: blur(5px);
+  border-radius: var(--border-radius-large);
+  border: 1px solid rgba(255, 211, 105, 0.5);
+  -webkit-box-shadow: 0 0 4px #f7e1ac;
+  box-shadow: 0 0 4px #f7e1ac;
+}
+
+form label {
+  padding-left: 1.3rem;
+  text-align: left;
+  color: var(--color-gray-100);
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+input {
+  font: inherit;
+  padding: 0.35rem;
+  color: var(--color-gray-400);
+  border-radius: var(--border-radius-large);
+  border: none;
+  width: 90%;
+  outline: none;
+}
+
+#pass-signup .bi-eye-slash {
+  display: block;
+  position: absolute;
+  color: var(--color-gray-400);
+  right: 1.625rem;
+  top: 17.2rem;
+}
+
+#pass-signup .bi-eye {
+  display: none;
+  position: absolute;
+  color: var(--color-gray-400);
+  right: 1.625rem;
+  top: 17.2rem;
+}
+
+#pass-login .bi-eye-slash {
+  display: block;
+  position: absolute;
+  color: var(--color-gray-400);
+  left: 22.3rem;
+  bottom: 14.7rem;
+}
+
+#pass-login .bi-eye {
+  display: none;
+  position: absolute;
+  color: var(--color-gray-400);
+  left: 22.3rem;
+  bottom: 14.6rem;
+}
+
+.description {
+  width: 17rem;
+  margin: 1.5rem auto;
+  font-size: 1.5rem;
+  color: var(--color-yellow-100);
+}
+
+#or {
+  margin: 0.25rem auto;
+  font-size: 17px;
+  color: var(--color-gray-100);
+  -webkit-text-shadow: 0 0 4px rgb(255, 211, 105);
+  text-shadow: 0 0 4px rgb(255, 211, 105);
+}
+
+.check {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#mark {
+  display: flex;
+  width: fit-content;
+  padding: 0;
+  padding-right: 3.25rem;
+  margin: 0;
+}
+
+#remember-password {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0;
+  margin-right: 0.25rem;
+  background-color: transparent;
+  border: 2px solid var(--color-gray-400);
+  border-radius: 50%;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+#remember-password:checked {
+  background-color: var(--color-yellow-100);
+}
+
+.link {
+  color: var(--color-yellow-100);
+}
+
+.link:hover {
+  text-decoration: underline;
+}

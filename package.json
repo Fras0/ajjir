@@ -1,0 +1,26 @@
+{
+  "name": "ajjir",
+  "version": "1.0.0",
+  "description": "Renting Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Fras0/ajjir.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Fras0/ajjir/issues"
+  },
+  "homepage": "https://github.com/Fras0/ajjir#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
