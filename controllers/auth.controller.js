@@ -1,5 +1,6 @@
 const User = require("../models/user.model");
 const validation = require("../util/validation");
+const authUtil = require("../util/authentication");
 const sessionFlash = require("../util/session-flash");
 
 function getSignup(req, res) {
@@ -14,7 +15,7 @@ function getSignup(req, res) {
     };
   }
 
-  res.render("auth/signup" , {inputData : sessionData});
+  res.render("auth/signup", { inputData: sessionData });
 }
 
 async function signup(req, res, next) {
@@ -48,8 +49,6 @@ async function signup(req, res, next) {
         res.redirect("/signup");
       }
     );
-
-    console.log("Please check your inputs again");
     return;
   }
 
@@ -88,16 +87,66 @@ async function signup(req, res, next) {
 }
 
 function getLogIn(req, res) {
-  res.render("auth/login");
+  let sessionData = sessionFlash.getSessionData(req);
+  if (!sessionData) {
+    sessionData = {
+      email: "",
+      password: "",
+    };
+  }
+
+  res.render("auth/login", { inputData: sessionData });
 }
 
-function getAllProducts(req, res) {
-  res.render("products/all-products");
+async function login(req, res, next) {
+  const user = new User(req.body.email, req.body.password);
+  let existingUser;
+  try {
+    existingUser = await user.getUserWithSameEmail();
+  } catch (error) {
+    next(error);
+    return;
+  }
+
+  const sessionErrorData = {
+    errorMessage: "Invalid credentials - please check entered data",
+    email: user.email,
+    password: user.password,
+  };
+
+  if (!existingUser) {
+    sessionFlash.flashDataToSession(req, sessionErrorData, function () {
+      res.redirect("/login");
+    });
+
+    return;
+  }
+
+  const passwordIsCorrect = await user.hasMatchingPassword(
+    existingUser.password
+  );
+
+  if (!passwordIsCorrect) {
+    sessionFlash.flashDataToSession(req, sessionErrorData, function () {
+      res.redirect("/login");
+    });
+    return;
+  }
+
+  authUtil.createUserSession(req, existingUser, function () {
+    res.redirect("/");
+  });
+}
+
+function logout(req, res) {
+  authUtil.destroyUserAuthSession(req);
+  res.redirect("/login");
 }
 
 module.exports = {
   getSignup: getSignup,
   signup: signup,
   getLogIn: getLogIn,
-  getAllProducts: getAllProducts,
+  login: login,
+  logout: logout,
 };

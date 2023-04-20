@@ -78,17 +78,3 @@ a {
 }
 
 
-
-
-.alert {
-  border-radius: var(--border-radius-small);
-  background-color: var(--color-error-100);
-  color: var(--color-error-500);
-  margin-top: 1rem;
-  width: 80%;
-}
-
-.alert h2 {
-  font-size: 1rem;
-  text-transform: uppercase;
-}

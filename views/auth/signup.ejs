@@ -4,10 +4,11 @@
 <body>
     <main>
         <div>
-          <h1><a href="">Ajjir</a></h1>
+          <h1><a href="/">Ajjir</a></h1>
           <p class="description">Create a new account</p>
         </div>
         <form action="/signup" method="POST">
+          <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
           <% if(inputData.errorMessage){ %>
             <section class="alert">
               <h2>Invalid input</h2>
@@ -47,7 +48,7 @@
           </p>
           <button class="btn">Sign up</button>
           <p id="or">Or</p>
-          <button class="google-btn">Sign up with Google</button>
+          <button class="google-btn">Log in with Google</button>
         </form>
     </main>
 </body>

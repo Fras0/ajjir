@@ -123,3 +123,23 @@ input {
 .link:hover {
   text-decoration: underline;
 }
+
+
+.alert {
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-error-100);
+  color: var(--color-error-500);
+  margin: 0.5rem auto 0 auto;
+  width: 80%;
+  display: block;
+}
+
+.alert h2 {
+  margin: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.alert p {
+  margin: 0;
+}
