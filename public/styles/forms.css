@@ -39,38 +39,6 @@ input {
   outline: none;
 }
 
-#pass-signup .bi-eye-slash {
-  display: block;
-  position: absolute;
-  color: var(--color-gray-400);
-  right: 1.625rem;
-  top: 17.2rem;
-}
-
-#pass-signup .bi-eye {
-  display: none;
-  position: absolute;
-  color: var(--color-gray-400);
-  right: 1.625rem;
-  top: 17.2rem;
-}
-
-#pass-login .bi-eye-slash {
-  display: block;
-  position: absolute;
-  color: var(--color-gray-400);
-  left: 22.3rem;
-  bottom: 14.7rem;
-}
-
-#pass-login .bi-eye {
-  display: none;
-  position: absolute;
-  color: var(--color-gray-400);
-  left: 22.3rem;
-  bottom: 14.6rem;
-}
-
 .description {
   width: 17rem;
   margin: 1.5rem auto;
@@ -142,4 +110,43 @@ input {
 
 .alert p {
   margin: 0;
+}
+
+.google-btn {
+  cursor: pointer;
+  font: inherit;
+  width: 80%;
+  padding: 0.35rem;
+  background-color: var(--color-black);
+  color: var(--color-gray-100);
+  border: 1px solid var(--color-yellow-100);
+  border-radius: var(--border-radius-small);
+}
+
+.google-btn:hover,
+.google-btn:active {
+  color: var(--color-yellow-100);
+  background-color: #1a1e26;
+  border-color: var(--color-yellow-100);
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+#icon {
+  position: absolute;
+  padding-top: 0.1rem;
+  padding-left: 3.5rem;
+}
+
+#pass-label {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 2rem;
+}
+
+#pass-label i {
+  cursor: pointer;
 }

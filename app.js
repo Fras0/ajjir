@@ -1,3 +1,10 @@
+//.............
+require("dotenv").config();
+const passport = require("passport");
+const cookieSession = require("cookie-session");
+require("./config/passport-setup");
+//................
+
 const path = require("path");
 
 const express = require("express");
@@ -9,8 +16,6 @@ const db = require("./data/database");
 const addCsrfTokenMiddleware = require("./middlewares/csrf-token");
 const errorHandlerMiddleware = require("./middlewares/error-handler");
 const checkAuthStatusMiddleware = require("./middlewares/check-auth");
-
-
 
 const authRoutes = require("./routes/auth.routes");
 const baseRoutes = require("./routes/base.routes");
@@ -27,12 +32,21 @@ app.use(express.json());
 const sessionConfig = createSessionConfig();
 
 app.use(expressSession(sessionConfig));
+//................
+// app.use(
+//   cookieSession({
+//     name: "tuto-session",
+//     keys: ["key1", "key2"],
+//   })
+// );
+// Initializes passport and passport sessions
+app.use(passport.initialize());
+app.use(passport.session());
+//................
 app.use(csrf());
-
 
 app.use(addCsrfTokenMiddleware);
 app.use(checkAuthStatusMiddleware);
-
 
 app.use(baseRoutes);
 app.use(authRoutes);

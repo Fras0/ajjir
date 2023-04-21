@@ -14,7 +14,6 @@ html {
   --color-error-100: rgb(255, 192, 180);
   --color-error-500: rgb(199, 51, 15);
 
-
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-4: 1rem;
@@ -59,22 +58,6 @@ a {
   border-color: var(--color-yellow-300);
 }
 
-.google-btn {
-  cursor: pointer;
-  font: inherit;
-  width: 80%;
-  padding: 0.35rem;
-  background-color: var(--color-black);
-  color: var(--color-gray-100);
-  border: 1px solid var(--color-yellow-100);
-  border-radius: var(--border-radius-small);
-}
 
-.google-btn:hover,
-.google-btn:active {
-  color: var(--color-yellow-100);
-  background-color: #1a1e26;
-  border-color: var(--color-yellow-100);
-}
 
 
