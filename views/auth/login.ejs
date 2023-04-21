@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/styles/forms.css">
 <script src="/scripts/toggle-password.js" defer></script>
+<script src="/scripts/google.js" defer></script>
 </head>
 <body>
     <main>
@@ -21,15 +22,14 @@
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" value="<%= inputData.email %>" required/>
             </p>
-            <div id="pass-login">
-                <!-- <label for="password">Password</label> -->
+            <p id="pass-login">
                 <label for="password" id="pass-label">Password 
                     <span class="input-group-addon" role="button" title="veiw password" id="passBtn">
                     <i class="fa fa-eye fa-fw" aria-hidden="true"></i>
                   </span>
                   </label>
                 <input type="password" id="password" name="password" value="<%= inputData.password %>" required/>
-            </div>
+                </p>
             <p class="check">
                 <label for="remember-password" id="mark">
                     <input type="checkbox" id="remember-password" name="remember-password">

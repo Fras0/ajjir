@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/styles/forms.css">
 <script src="/scripts/toggle-password.js" defer></script>
+<script src="/scripts/google.js" defer></script>
 </head>
 <body>
     <main>
@@ -29,26 +30,24 @@
             <label for="phone">Phone Number</label>
             <input type="text" id="phone" name="phone" value="<%= inputData.phone %>" required/>
           </p>
-          <div id="pass-signup">
+          <p id="pass-signup">
             <label for="password" id="pass-label">Password 
               <span class="input-group-addon" role="button" title="veiw password" id="passBtn">
               <i class="fa fa-eye fa-fw" aria-hidden="true"></i>
             </span>
             </label>
             <input type="password" id="password" name="password" minlength="6"  value="<%= inputData.password %>" required/>
-        </div>
+          </p>
           <p>
             <label for="confirm-password">Confirm Password</label>
             <input type="password" id="confirm-password" name="confirm-password" minlength="6" value="<%= inputData.confirmPassword %>" required/>
           </p>
           <button class="btn">Sign up</button>
           <p id="or">Or</p>
-        </form>
-        <form action="/google" method="GET">
-          <button class="google-btn">
-            <div id="icon"><img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/></div>
-            Log in with Google
-          </button>
+            <button class="google-btn">
+              <div id="icon"><img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/></div>
+              Log in with Google
+            </button>
         </form>
     </main>
 </body>

@@ -2,6 +2,7 @@ const User = require("../models/user.model");
 const validation = require("../util/validation");
 const authUtil = require("../util/authentication");
 const sessionFlash = require("../util/session-flash");
+const passport = require("passport");
 
 function getSignup(req, res) {
   let sessionData = sessionFlash.getSessionData(req);
@@ -137,6 +138,7 @@ async function login(req, res, next) {
     res.redirect("/");
   });
 }
+
 
 function logout(req, res) {
   authUtil.destroyUserAuthSession(req);

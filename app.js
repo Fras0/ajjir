@@ -1,9 +1,7 @@
-//.............
 require("dotenv").config();
 const passport = require("passport");
-const cookieSession = require("cookie-session");
 require("./config/passport-setup");
-//................
+
 
 const path = require("path");
 
@@ -32,17 +30,11 @@ app.use(express.json());
 const sessionConfig = createSessionConfig();
 
 app.use(expressSession(sessionConfig));
-//................
-// app.use(
-//   cookieSession({
-//     name: "tuto-session",
-//     keys: ["key1", "key2"],
-//   })
-// );
+
 // Initializes passport and passport sessions
 app.use(passport.initialize());
 app.use(passport.session());
-//................
+
 app.use(csrf());
 
 app.use(addCsrfTokenMiddleware);
