@@ -16,6 +16,7 @@ const errorHandlerMiddleware = require("./middlewares/error-handler");
 const checkAuthStatusMiddleware = require("./middlewares/check-auth");
 
 const authRoutes = require("./routes/auth.routes");
+const productRoutes = require("./routes/product.routes");
 const baseRoutes = require("./routes/base.routes");
 
 const app = express();
@@ -35,12 +36,13 @@ app.use(expressSession(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(csrf());
+// app.use(csrf());
 
-app.use(addCsrfTokenMiddleware);
+// app.use(addCsrfTokenMiddleware);
 app.use(checkAuthStatusMiddleware);
 
 app.use(baseRoutes);
+app.use(productRoutes);
 app.use(authRoutes);
 
 app.use(errorHandlerMiddleware);
