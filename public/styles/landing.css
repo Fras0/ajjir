@@ -1,12 +1,20 @@
 body {
-  background-image: url("../images/landing.png");
+  /* background-image: url("../images/landing.png"); */
   background-size: cover;
+  /* background-attachment: fixed; */
 }
 
-/* main {
+main {
+  background-image: url("../images/yellow-mark.png");
+  background-repeat: no-repeat;
+  /* background-position: 975px 50px; */
+  background-position: 60.9rem 3.125rem;
+  /* background-size: 450px; */
+  background-size: 28.125rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-} */
+}
 
 h1 {
   font-size: 90px;
@@ -64,6 +72,7 @@ ul {
 
 #content {
   padding-right: 7rem;
+  margin-top: -10rem;
 }
 
 #content button {
@@ -71,21 +80,19 @@ ul {
 }
 
 #description {
-  width: 100%;
-  margin: 4rem auto 0 auto;
+
+  width: 70rem;
+  margin: 5rem auto 0 auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
-#description img {
-  margin-top: 1rem;
-  width: 28rem;
-  height: 20rem;
+img {
+  width: 31.5rem;
+  height: 22.5rem;
   object-fit: cover;
   border-radius: 50px;
-}
-
-#img {
   margin-top: 2.5rem;
+  margin-bottom: -1rem;
 }
