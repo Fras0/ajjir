@@ -1,12 +1,5 @@
 body {
-  background-image: url("../images/background.png");
   text-align: center;
-}
-
-h1 {
-  font-weight: lighter;
-  font-size: 70px;
-  margin: 0;
 }
 
 form {

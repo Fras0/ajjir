@@ -1,5 +1,5 @@
 function getAllProducts(req, res) {
-  res.render("products/all-products");
+  res.render("products/home");
 }
 
 module.exports = {
