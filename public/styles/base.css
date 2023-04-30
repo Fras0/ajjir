@@ -11,6 +11,8 @@ html {
   --color-gray-500: #667085;
   --color-black: #222831;
 
+  --color-helpers: #999080;
+
   --color-error-100: rgb(255, 192, 180);
   --color-error-500: rgb(199, 51, 15);
 
@@ -65,6 +67,20 @@ a {
   border-color: var(--color-yellow-300);
 }
 
+footer {
+  background-color: var(--color-black);
+  text-align: left;
+}
 
+footer p {
+  margin: 0;
+  color: var(--color-helpers);
+}
 
+#copyright {
+  text-align: center;
+}
 
+#xzero {
+  color: var(--color-gray-100);
+}
