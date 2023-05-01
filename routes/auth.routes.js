@@ -1,5 +1,6 @@
 const epxress = require("express");
 const passport = require("passport");
+const User = require('../models/user.model');
 const authController = require("../controllers/auth.controller");
 const router = epxress.Router();
 
@@ -21,9 +22,14 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", { failureRedirect: "/login" }),
-  function (req, res) {
+  async function (req, res) {
     // Successful authentication, redirect home.
-    
+    // console.log(req.user);
+    user = new User(req.user.email,'0000',null,req.user.displayName);
+    const existsAllready = await user.existsAllready();
+    if(!existsAllready){
+      user.signup();
+    }
     res.redirect("/");
   }
 );

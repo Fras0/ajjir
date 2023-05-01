@@ -1,9 +1,26 @@
 const Product = require("../models/product.model");
 
+async function getProducts(req, res, next) {
+  try {
+    const products = await Product.findAll();
+    // res.render("products/all-products", { products: products });
+    res.json({message:'all products', products: products });
+  } catch (error) {
+    next(error);
+    return;
+  }
+}
+
 async function createNewProduct(req, res, next) {
+  // console.log(req.session.uid);
+  // console.log(req.user);
+  // if (!res.locals.isAuth) {
+  //   return res.json({ message: "not authenticated"});
+  // }
   const product = new Product({
     ...req.body,
     image: req.file.filename,
+    // owner: req.session.email,
   });
 
   try {
@@ -15,6 +32,16 @@ async function createNewProduct(req, res, next) {
 
   //   res.redirect("/admin/products");
   res.json({ message: "product added", product: product });
+}
+
+async function getProductDetails(req, res, next) {
+  try {
+    const product = await Product.findById(req.params.id);
+    res.json({ message: "product page", product: product });
+    // res.render("products/update-product", { product: product });
+  } catch (error) {
+    next(error);
+  }
 }
 
 async function updateProduct(req, res, next) {
@@ -53,4 +80,6 @@ module.exports = {
   createNewProduct: createNewProduct,
   updateProduct: updateProduct,
   deleteProduct: deleteProduct,
+  getProductDetails: getProductDetails,
+  getProducts: getProducts,
 };
