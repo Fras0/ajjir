@@ -9,7 +9,7 @@ class Product {
     this.description = productData.description;
     this.longitude = productData.longitude;
     this.latitude = productData.latitude;
-    this.maxDuration = productData.maxDuration;
+    this.maxDuration = +productData.maxDuration;
     this.category = productData.category;
     this.owner = productData.owner;
     this.image = productData.image; // the name of the image file

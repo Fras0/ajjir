@@ -3,20 +3,25 @@ const Product = require("../models/product.model");
 async function getProducts(req, res, next) {
   try {
     const products = await Product.findAll();
-    // res.render("products/all-products", { products: products });
-    res.json({message:'all products', products: products });
+    res.render("products/all-products", { products: products });
+    // res.json({message:'all products', products: products });
   } catch (error) {
     next(error);
     return;
   }
 }
 
+function getNewProduct(req, res) {
+  if (!res.locals.isAuth) {
+    return res.json({ message: "not authenticated"});
+  }
+  res.render("products/new-product");
+}
+
 async function createNewProduct(req, res, next) {
   // console.log(req.session.uid);
   // console.log(req.user);
-  // if (!res.locals.isAuth) {
-  //   return res.json({ message: "not authenticated"});
-  // }
+  
   const product = new Product({
     ...req.body,
     image: req.file.filename,
@@ -78,6 +83,7 @@ async function deleteProduct(req, res, next) {
 
 module.exports = {
   createNewProduct: createNewProduct,
+  getNewProduct: getNewProduct,
   updateProduct: updateProduct,
   deleteProduct: deleteProduct,
   getProductDetails: getProductDetails,

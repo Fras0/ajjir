@@ -9,6 +9,8 @@ html {
   --color-gray-100: #eeeeee;
   --color-gray-400: #686a6d;
   --color-gray-500: #667085;
+  --color-gray-800: #393E46;
+  --color-gray-900: #2E333C;
   --color-black: #222831;
 
   --color-helpers: #999080;
@@ -28,9 +30,12 @@ html {
 }
 
 body {
+  min-height: 100rem;
+  min-width: 94rem;
+  max-width: 100rem;
   background-image: url("../images/background.png");
   color: var(--color-gray-100);
-  margin: 0;
+  margin: auto;
 }
 
 main {
@@ -67,9 +72,30 @@ a {
   border-color: var(--color-yellow-300);
 }
 
+
+
+/* Footer */
+
 footer {
+  position: absolute;
+  top: 90rem;
+  min-width: 94.89rem;
   background-color: var(--color-black);
   text-align: left;
+}
+
+footer h1 {
+  font-size: 90px;
+}
+
+footer ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
 footer p {
@@ -79,6 +105,10 @@ footer p {
 
 #copyright {
   text-align: center;
+}
+
+#jj {
+  color: var(--color-yellow-100);
 }
 
 #xzero {

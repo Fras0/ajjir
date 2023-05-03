@@ -58,6 +58,7 @@ input {
   padding: 0;
   padding-right: 3.25rem;
   margin: 0;
+  cursor: pointer;
 }
 
 #remember-password {

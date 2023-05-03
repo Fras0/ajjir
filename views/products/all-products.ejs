@@ -1,0 +1,60 @@
+<%- include('../shared/includes/head', {pageTitle : 'All products'}) %>
+<link rel="stylesheet" href="/styles/all-products.css">
+</head>
+<body>
+  <header>
+    <%- include('../shared/includes/nav') %>
+  </header>
+  <main>
+    <!-- <a href="/products/new" class="btn">Add</a> -->
+    <div id="filters-items">
+      <aside>
+        <ul>
+          <li id="categories">
+            <h3>Categories</h3>
+            <ul>
+              <li>Tools</li>
+              <li>Cars</li>
+              <li>Houses</li>
+              <li>Electronics</li>
+              <li>Books</li>
+            </ul>
+          </li>
+          <li id="status">
+            <h3>Status</h3>
+            <ul>
+              <li>
+                <label for="available">
+                  <input type="checkbox" id="available" name="available" class="availability"> Available
+                </label>
+              </li>
+              <li>
+                <label for="rented">
+                  <input type="checkbox" id="rented" name="rented" class="availability"> Rented
+                </label>
+              </li>
+            </ul>
+          </li>
+          <li id="price">
+            <h3>Price / Day</h3>
+            <ul>
+              <li><p>Under 100</p></li>
+              <li><p>100 - 500</p></li>
+              <li><p>500 - 1000</p></li>
+              <li><p>Over 1000</p></li>
+            </ul>
+          </li>
+        </ul>
+      </aside>
+      <ul id="products-grid">
+        <% for (const product of products){ %>
+             <li>
+                <%- include('../shared/includes/product-item' , { product: product }) %>
+            </li>
+        <% } %>
+      </ul>
+    </div>
+  </main>
+  <%- include('../shared/includes/footer') %>
+</body>
+</html>

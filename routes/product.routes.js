@@ -7,6 +7,8 @@ const router = epxress.Router();
 
 router.get('/products', productController.getProducts);
 
+router.get('/products/new', productController.getNewProduct);
+
 router.post('/products', imageUploadMiddleware, productController.createNewProduct);
 
 router.get('/products/:id', productController.getProductDetails);
