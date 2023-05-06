@@ -100,8 +100,21 @@ aside h3 {
 }
 
 #categories li {
-  margin: var(--space-2) auto;
+  margin: var(--space-4) 0;
   cursor: pointer;
+  width: fit-content;
+}
+
+#categories .checked {
+  background-color: #F7E1AC;
+  color: #B48B00;
+  font-weight: 700;
+  font-size: 1rem;
+  width: fit-content;
+  border-radius: 15px;
+  padding: 0.2rem 0.6rem;
+  text-align: center;
+  margin: var(--space-4) 0;
 }
 
 #status label {
@@ -130,5 +143,19 @@ aside h3 {
 }
 
 #price li {
+  margin: var(--space-4) 0;
   cursor: pointer;
+  width: fit-content;
+}
+
+#price .checked {
+  background-color: #F7E1AC;
+  color: #B48B00;
+  font-weight: 700;
+  font-size: 1rem;
+  width: fit-content;
+  border-radius: 15px;
+  padding: 0.2rem 0.6rem;
+  text-align: center;
+  margin: var(--space-4) 0;
 }
