@@ -7,7 +7,7 @@
 <body>
     <main>
         <div>
-          <h1><a href="/">Ajjir</a></h1>
+          <h1><a href="/">A<span id="jj">jj</span>ir</a></h1>
           <p class="description">Not every thing <br> needs to be Owned</p>
         </div>
         <form action="/login" method="POST">
@@ -19,11 +19,11 @@
                 </section>
                 <% } %>
             <p>
-                <label for="email">Email</label>
+                <label for="email" class="shadow">Email</label>
                 <input type="text" id="email" name="email" value="<%= inputData.email %>" required/>
             </p>
             <p id="pass-login">
-                <label for="password" id="pass-label">Password 
+                <label for="password" id="pass-label" class="shadow">Password 
                     <span class="input-group-addon" role="button" title="veiw password" id="passBtn">
                     <i class="fa fa-eye fa-fw" aria-hidden="true"></i>
                   </span>
@@ -38,7 +38,7 @@
                 <a href="" class="link">Forgot Password?</a>
             </p>
             <button class="btn">Sign in</button>
-            <p id="or">Or</p>
+            <p class="shadow">Or</p>
             <button class="google-btn">
                 <div id="icon"><img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/></div>
                 Log in with Google

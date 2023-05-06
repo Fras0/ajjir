@@ -1,3 +1,7 @@
+body {
+  min-height: auto;
+}
+
 main{
   width: 95%;
 }

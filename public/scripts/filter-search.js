@@ -51,7 +51,6 @@ if (queryString) {
 
     for (const priceElement of pricesElements) {
       priceTextContent = priceElement.textContent.trim().toLowerCase();
-      console.log(priceTextContent);
       if (oldPrice.toLowerCase() === priceTextContent) {
         priceElement.classList.add("checked");
         price = priceTextContent;

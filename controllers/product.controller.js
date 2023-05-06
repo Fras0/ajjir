@@ -13,7 +13,7 @@ async function getProducts(req, res, next) {
 
 function getNewProduct(req, res) {
   if (!res.locals.isAuth) {
-    return res.json({ message: "not authenticated"});
+    return res.json({ message: "not authenticated" });
   }
   res.render("products/new-product");
 }
@@ -21,9 +21,13 @@ function getNewProduct(req, res) {
 async function createNewProduct(req, res, next) {
   // console.log(req.session.uid);
   // console.log(req.user);
-  
+
+  productObj = { ...req.body };
+
+  productObj.category = productObj.category.toLowerCase();
+
   const product = new Product({
-    ...req.body,
+    ...productObj,
     image: req.file.filename,
     // owner: req.session.email,
   });

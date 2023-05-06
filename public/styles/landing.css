@@ -2,6 +2,7 @@ body {
   background: url("../images/yellow-mark.png") top 13rem right 18% no-repeat,
     url("../images/background.png");
   background-size: 28.125rem, auto;
+  min-height: auto;
 }
 
 main {
@@ -151,4 +152,24 @@ h3 {
   border: 1px solid rgba(255, 211, 105, 0.5);
   -webkit-box-shadow: 0 0 4px #f7e1ac;
   box-shadow: 0 0 4px #f7e1ac;
+}
+
+#auth {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#profile {
+  width: 9rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#profile img {
+  margin-bottom: -0.2rem;
+  width: 1.15rem;
+  height: 1.15rem;
 }

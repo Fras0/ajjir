@@ -77,7 +77,8 @@ a {
 /* Footer */
 
 footer {
-  position: absolute;
+  /* position: absolute; */
+  margin-top: 2rem;
   top: 90rem;
   min-width: 94.89rem;
   background-color: var(--color-black);

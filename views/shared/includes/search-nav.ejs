@@ -1,0 +1,23 @@
+<nav>
+  <ul>
+    <li><h1><a href="/">A<span id="jj">jj</span>ir</a></h1></li>
+    <li>
+      <form action="" id="search-form">
+        <input type="search" placeholder="What are you renting?">
+        <button id="search"><img src="icons/search.svg" alt="search"></button>
+      </form>
+    </li>
+    <li>
+      <% if(!locals.isAuth){ %>
+        <a class="btn" href="/login">Sign in</a>
+        <a class="btn" href="/signup">Sign up</a>
+      <% } %>
+      <% if(locals.isAuth){ %>
+        <div id="auth">
+          <form action="/profile" method="GET" id="profile"><button class="btn">Profile <img src="icons/profile.svg" alt="profile"></button></form>
+          <form action="/logout" method="POST"><button class="btn" id="logout">Logout</button></form>
+        </div>
+      <% } %>
+    </li>
+  </ul>
+</nav>

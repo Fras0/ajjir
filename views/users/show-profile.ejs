@@ -1,0 +1,71 @@
+<%- include('../shared/includes/head' , {pageTitle: 'Home'}) %>
+<link rel="stylesheet" href="/styles/landing.css">
+<link rel="stylesheet" href="/styles/show-profile.css">
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+</head>
+<body>
+<%- include('../shared/includes/nav', { pageTitle: 'Profile' }) %>
+<main>
+  <ul id="profile-overview">
+    <li id="images">
+      <img src="images/cover.png" alt="cover" id="cover">
+      <article>
+        <img src="images/profile.png" alt="profile">
+        <div>
+          <h2>Snowy for renting</h2>
+          <div>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star-half-o"></span>
+            <span class="fa fa-star"></span>
+            <span id="rate">3.7</span>
+            <span id="review"><a href="" class="link">All reviews</a></span>
+          </div>
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem magnam accusamus consequatur temporibus doloribus 
+          vitae aliquam porro corporis aperiam at. Impedit, aperiam aspernatur. Non, alias consectetur porro numquam quae sed.
+        </p>
+      </article>
+    </li>
+    <li>
+      <ul id="profile-content">
+        <li id="user-settings">
+          <div>
+            <p>My Items</p>
+            <p>Rent History</p>
+            <p>Saved Cards</p>
+            <p>Settings</p>
+          </div>
+        </li>
+        <li id="info-verify">
+          <section id="verify">
+            <p>Account Verification</p>
+            <div><img src="icons/right.svg" alt="rigth"><span>You're All Set</span></div>
+            <button class="btn">Add Bank Account</button>
+          </section>
+          <section id="user-info">
+            <div>
+              <p><span><img src="/icons/location.svg" alt="location"></span> Talkha</p>
+              <p><span><img src="/icons/call.svg" alt="call"></span> 2313132</p>
+              <p><span><img src="/icons/edit.svg" alt="edit"></span> <a href="" class="link">Edit Profile Details</a></p>
+            </div>
+          </section>
+        </li>
+        <li id="dashboard">
+          <h3>Dashboard</h3>
+          <hr>
+          <img src="/images/dashboard.png" alt="dashboard">
+        </li>
+      </ul>
+    </li>
+  </ul>
+</main>
+<%- include('../shared/includes/footer') %>
+</body>
+</html>
