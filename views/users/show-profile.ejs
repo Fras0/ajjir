@@ -1,4 +1,4 @@
-<%- include('../shared/includes/head' , {pageTitle: 'Home'}) %>
+<%- include('../shared/includes/head' , {pageTitle: 'Profile'}) %>
 <link rel="stylesheet" href="/styles/landing.css">
 <link rel="stylesheet" href="/styles/show-profile.css">
 
@@ -8,15 +8,15 @@
 
 </head>
 <body>
-<%- include('../shared/includes/nav', { pageTitle: 'Profile' }) %>
+<%- include('../shared/includes/nav', { pageTitle: 'Profile' ,id: id }) %>
 <main>
   <ul id="profile-overview">
     <li id="images">
-      <img src="images/cover.png" alt="cover" id="cover">
+      <img src="/images/cover.png" alt="cover" id="cover">
       <article>
-        <img src="images/profile.png" alt="profile">
+        <img src="/images/profile.png" alt="profile">
         <div>
-          <h2>Snowy for renting</h2>
+          <h2><%= user.name %></h2>
           <div>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -46,14 +46,16 @@
         <li id="info-verify">
           <section id="verify">
             <p>Account Verification</p>
-            <div><img src="icons/right.svg" alt="rigth"><span>You're All Set</span></div>
+            <div><img src="/icons/right.svg" alt="rigth"><span>You're All Set</span></div>
             <button class="btn">Add Bank Account</button>
           </section>
           <section id="user-info">
             <div>
-              <p><span><img src="/icons/location.svg" alt="location"></span> Talkha</p>
-              <p><span><img src="/icons/call.svg" alt="call"></span> 2313132</p>
-              <p><span><img src="/icons/edit.svg" alt="edit"></span> <a href="" class="link">Edit Profile Details</a></p>
+              <p><span><img src="/icons/location.svg" alt="location"></span> <%= user.address.street %>, <%= user.address.city %>, <%= user.address.country %></p>
+              <p><span><img src="/icons/call.svg" alt="call"></span> <%= user.phone %></p>
+              <form action="/users/edit-profile/<%= id %>" method="get">
+                <span><img src="/icons/edit.svg" alt="edit"></span> <button class="link">Edit Profile Details</button>
+              </form>
             </div>
           </section>
         </li>

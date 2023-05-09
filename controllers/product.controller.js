@@ -1,4 +1,13 @@
+const db = require("../data/database");
+const mongodb = require("mongodb");
+
 const Product = require("../models/product.model");
+
+const User = require("../models/user.model");
+
+const sessionFlash = require("../util/session-flash");
+
+const authController = require("./auth.controller");
 
 async function getProducts(req, res, next) {
   try {
@@ -11,10 +20,28 @@ async function getProducts(req, res, next) {
   }
 }
 
-function getNewProduct(req, res) {
+async function getNewProduct(req, res) {
+  const user = await User.findById(res.locals.uid);
+
   if (!res.locals.isAuth) {
-    return res.json({ message: "not authenticated" });
+    // return res.json({ message: "not authenticated" });
+    let sessionData = sessionFlash.getSessionData(req);
+    if (!sessionData) {
+      sessionData = {
+        email: "",
+        password: "",
+      };
+    }
+
+    res.redirect("/login");
+    return;
   }
+
+  if (!user.isVerified) {
+    res.redirect(`/users/edit-profile/${res.locals.uid}`);
+    return;
+  }
+
   res.render("products/new-product");
 }
 
@@ -22,7 +49,7 @@ async function createNewProduct(req, res, next) {
   // console.log(req.session.uid);
   // console.log(req.user);
 
-  productObj = { ...req.body };
+  const productObj = { ...req.body };
 
   productObj.category = productObj.category.toLowerCase();
 
@@ -39,8 +66,9 @@ async function createNewProduct(req, res, next) {
     return;
   }
 
-  //   res.redirect("/admin/products");
-  res.json({ message: "product added", product: product });
+  
+  res.redirect("/products");
+  // res.json({ message: "product added", product: product });
 }
 
 async function getProductDetails(req, res, next) {

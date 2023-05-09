@@ -2,14 +2,30 @@
 <link rel="stylesheet" href="/styles/landing.css">
 </head>
 <body>
-  <%- include('../shared/includes/nav', {pageTitle: 'Home'}) %>
+  <!-- <div id="backdrop"></div> -->
+  <%- include('../shared/includes/nav', {pageTitle: 'Home', id: locals.uid}) %>
   <main>
+    <!-- <aside class="model">
+      <h2>You are not authenticated!</h2>
+      <p>You have to log in first to add items.</p>
+      <form>
+        <div>
+          <a href="/login" class="btn">Log in</a>
+          <a href="/" class="btn btn-alt">Cancel</a>
+        </div>
+      </form>
+    </aside> -->
     <section>
       <ul id="description">
         <li id="content">
           <h2>Best Place to Rent <br><span id="jj">Everything.</span></h2>
           <p>At Ajjir, you can rent all tools you need.</p>
-          <button class="btn">Rent Now</button>
+          <div id="new-prod">
+            <a class="btn" href="/products">Rent Now</a>
+            <form action="/products/new" method="get">
+              <button class="btn">Add Your Products</button>
+            </form>
+          </div>
         </li>
         <li><img src="/images/toolkit.png" alt="toolkit" id="toolkit"></li>
       </ul>

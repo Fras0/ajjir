@@ -3,16 +3,22 @@ const db = require("../data/database");
 const mongodb = require("mongodb");
 
 class User {
-  constructor(email, password, phone, name, country, street, city) {
-    this.email = email;
-    this.password = password;
-    this.phone = phone;
-    this.name = name;
+  constructor(userData) {
+    this.email = userData.email;
+    this.password = userData.password;
+    this.phone = userData.phone;
+    this.name = userData.name;
     this.address = {
-      street: street,
-      city: city,
-      country: country,
+      street: userData.street,
+      city: userData.city,
+      country: userData.country,
     };
+    if (userData._id) {
+      this.id = userData._id.toString();
+    }
+    if (userData.isVerified) {
+      this.isVerified = userData.isVerified;
+    }
   }
 
   static findById(userId) {
@@ -49,6 +55,44 @@ class User {
 
   hasMatchingPassword(hashedPassword) {
     return bcrypt.compare(this.password, hashedPassword);
+  }
+
+  async save() {
+    const userData = {
+      email: this.email,
+      name: this.name,
+      phone: this.phone,
+      address: this.address,
+    };
+
+    if (this.id) {
+      const userId = new mongodb.ObjectId(this.id);
+
+      await db.getDb().collection("users").updateOne(
+        { _id: userId },
+        {
+          $set: userData,
+        }
+      );
+    } else {
+      await db.getDb().collection("users").insertOne(userData);
+    }
+  }
+
+  async verify() {
+    if (this.id) {
+      const userId = new mongodb.ObjectId(this.id);
+
+      await db
+        .getDb()
+        .collection("users")
+        .updateOne(
+          { _id: userId },
+          {
+            $set: { isVerified: true },
+          }
+        );
+    }
   }
 }
 

@@ -9,9 +9,12 @@ main {
 
 ul {
   list-style: none;
+  justify-content: space-around;
+}
+
+#reverse {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-around;
 }
 
 #logo h1 {
@@ -29,9 +32,8 @@ ul {
   margin-top: 2rem;
 }
 
-form {
+.forms {
   margin: auto;
-  /* padding-bottom: 0.5rem; */
   padding: 1.5rem;
   width: 30rem;
   background-color: rgba(247, 225, 172, 0.08);
@@ -42,7 +44,7 @@ form {
   box-shadow: 0 0 4px #f7e1ac;
 }
 
-form label {
+.forms label {
   padding-left: 1.3rem;
   text-align: left;
   color: var(--color-gray-100);
@@ -61,7 +63,6 @@ input {
 }
 
 .description {
-  /* width: 17rem; */
   margin: 1rem auto;
   font-size: 1.5rem;
   font-weight: 400;
@@ -116,7 +117,6 @@ input {
 .link:hover {
   text-decoration: underline;
 }
-
 
 .alert {
   border-radius: var(--border-radius-small);

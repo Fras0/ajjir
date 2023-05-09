@@ -1,0 +1,88 @@
+#image-upload-control {
+  display: flex;
+  align-items: center;
+}
+
+#image-upload-control input {
+  max-width: 15rem;
+}
+
+#image-upload-control img {
+  display: none;
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: var(--border-radius-small);
+}
+
+#description {
+  font: inherit;
+  margin: 0 auto;
+  padding: var(--space-2);
+  border-radius: var(--border-radius-small);
+  border: none;
+  max-width: 90%;
+  width: 90%;
+  max-height: 11.5rem;
+  outline: none;
+}
+
+#category {
+  font: inherit;
+  margin: 0 auto;
+  padding: var(--space-2);
+  border-radius: var(--border-radius-small);
+  border: none;
+  max-width: 90%;
+  width: 90%;
+  /* max-height: 11.5rem; */
+  outline: none;
+}
+
+
+/* .drag-area{
+  border: 2px dashed #fff;
+  height: 20rem;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.drag-area.active{
+  border: 2px solid #fff;
+}
+.drag-area .icon{
+  font-size: 100px;
+  color: var(--color-gray-100);
+}
+.drag-area header{
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-gray-100);
+}
+.drag-area span{
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-gray-100);
+  margin: 10px 0 15px 0;
+}
+.drag-area button{
+  padding: 10px 25px;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background: #fff;
+  color: #5256ad;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.drag-area img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+} */

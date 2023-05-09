@@ -1,10 +1,58 @@
-<article class="product-item">
-  <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
-  <div class="product-item-content">
-    <h2><%= product.title %></h2>
-    <div class="product-item-actions">
-      <a class="btn btn-alt" href="/admin/products/<%= product.id %>">View & Edit</a>
-      <button class="btn btn-alt">Delete</button>
-    </div>
+<form action="<%= submitPath %>" method="POST" enctype="multipart/form-data" class="forms">
+  <p>
+    <label for="name" class="shadow">Name</label>
+    <input type="text" id="name" name="name" value="<%= product.name %>" required>
+  </p>
+
+  <div id="image-upload-control">
+    <p>
+      <label for="image" class="shadow">Image</label>
+      <input type="file" id="image" name="image" accept="image/png,image/jpg" <% if (imageRequired) { %>required<% } %>>
+    </p>
+
+    <img src="" alt="Selected image.">
   </div>
-</article>
+
+  <p>
+    <label for="price" class="shadow">Price</label>
+    <input type="number" id="price" name="price" value="<%= product.price %>" min="0.01" step="0.01" required>
+  </p>
+
+  <p>
+    <label for="description" class="shadow">Description</label>
+    <textarea id="description" name="description" rows="7" required><%= product.description %></textarea>
+  </p>
+
+  <p>
+    <label for="maxDuration" class="shadow">Max Duration</label>
+    <input type="number" id="maxDuration" name="maxDuration" value="<%= product.maxDuration %>" required>
+  </p>
+
+  <p>
+    <label for="category" class="shadow">Category</label>
+    
+    <select id="category" name="category" required>
+      <option disabled selected value="">--Select Category--</option>
+      <option value="Electronics">Electronics</option>
+      <option value="Books">Books</option>
+      <option value="Tools">Tools</option>
+      <option value="Houses">Houses</option>
+      <option value="Cars">Cars</option>
+    </select>
+  </p>
+
+  <!-- <label class="shadow">Image</label>
+  <div class="drag-area">
+    <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+    <header>Drag & Drop to Upload File</header>
+    <span>OR</span>
+    <button>Browse File</button>
+     <input type="file" hidden>
+    <input type="file" hidden id="image" name="image" accept="image/png,image/jpg" %>>
+  </div> -->
+
+  <p>
+    <button type="reset" class="btn btn-alt">Reset</button>
+    <button class="btn">Save</button>
+  </p>
+</form>

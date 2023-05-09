@@ -89,6 +89,12 @@ ul {
   justify-content: space-around;
 }
 
+#new-prod {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+}
+
 #toolkit {
   width: 31.5rem;
   height: 22.5rem;
@@ -173,3 +179,26 @@ h3 {
   width: 1.15rem;
   height: 1.15rem;
 }
+
+
+/* #backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+
+.model{
+  position: fixed;
+  top: 20%;
+  left: 28%;
+  width: 70%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+} */

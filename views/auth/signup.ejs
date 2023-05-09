@@ -6,7 +6,7 @@
 </head>
 <body>
     <main>
-      <ul>
+      <ul id="reverse">
         <li id="logo">
           <div>
             <h1><a href="/">A<span id="jj">jj</span>ir</a></h1>
@@ -14,7 +14,7 @@
           </div>
         </li>
         <li>
-          <form action="/signup" method="POST">
+          <form action="/signup" method="POST" class="forms">
             <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
             <% if(inputData.errorMessage){ %>
               <section class="alert">

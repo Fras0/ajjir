@@ -1,7 +1,8 @@
 const epxress = require("express");
 const passport = require("passport");
-const User = require('../models/user.model');
+const User = require("../models/user.model");
 const authController = require("../controllers/auth.controller");
+const authUtil = require("../util/authentication");
 const router = epxress.Router();
 
 router.get("/signup", authController.getSignup);
@@ -22,15 +23,33 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", { failureRedirect: "/login" }),
-  async function (req, res) {
+  async function (req, res, next) {
     // Successful authentication, redirect home.
     // console.log(req.user);
-    user = new User(req.user.email,'0000',null,req.user.displayName);
+    const userData = {
+      email: req.user.email,
+      password: "000",
+      name: req.user.displayName,
+    };
+
+    let user = new User(userData);
     const existsAllready = await user.existsAllready();
-    if(!existsAllready){
-      user.signup();
+    if (!existsAllready) {
+      await user.signup();
+      console.log('if statement')
     }
-    res.redirect("/");
+
+    let existingUser;
+    try {
+      existingUser = await user.getUserWithSameEmail();
+    } catch (error) {
+      next(error);
+      return;
+    }
+
+    authUtil.createUserSession(req, existingUser, function () {
+      res.redirect("/");
+    });
   }
 );
 

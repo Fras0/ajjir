@@ -72,6 +72,16 @@ a {
   border-color: var(--color-yellow-300);
 }
 
+.btn-alt {
+  background-color: transparent;
+  border: 2px solid var(--color-yellow-100);
+}
+
+.btn-alt:hover,
+.btn-alt:active {
+  background-color: transparent;
+}
+
 
 
 /* Footer */

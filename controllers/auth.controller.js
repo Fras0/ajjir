@@ -53,15 +53,7 @@ async function signup(req, res, next) {
     return;
   }
 
-  const user = new User(
-    req.body.email,
-    req.body.password,
-    req.body.phone,
-    req.body.name,
-    req.body.country,
-    req.body.street,
-    req.body.city
-  );
+  const user = new User({...req.body});
 
   try {
     const existsAllready = await user.existsAllready();
@@ -100,7 +92,7 @@ function getLogIn(req, res) {
 }
 
 async function login(req, res, next) {
-  const user = new User(req.body.email, req.body.password);
+  const user = new User({...req.body});
   let existingUser;
   try {
     existingUser = await user.getUserWithSameEmail();
@@ -138,7 +130,6 @@ async function login(req, res, next) {
     res.redirect("/");
   });
 }
-
 
 function logout(req, res) {
   authUtil.destroyUserAuthSession(req);

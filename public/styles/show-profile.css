@@ -64,6 +64,10 @@ body {
 }
 
 .link {
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: transparent;
+  border: none;
   font-weight: 400;
   color: var(--color-yellow-100);
 }

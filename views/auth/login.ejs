@@ -10,7 +10,7 @@
           <h1><a href="/">A<span id="jj">jj</span>ir</a></h1>
           <p class="description">Not every thing <br> needs to be Owned</p>
         </div>
-        <form action="/login" method="POST">
+        <form action="/login" method="POST" class="forms">
             <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
             <% if(inputData.errorMessage){ %>
                 <section class="alert">

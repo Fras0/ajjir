@@ -17,8 +17,8 @@
             <% } %>
             <% if(locals.isAuth){ %>
               <div id="auth">
-                <% if (pageTitle === 'Home') { %>
-                  <form action="/profile" method="GET" id="profile"><button class="btn">Profile <img src="icons/profile.svg" alt="profile"></button></form>
+                <% if (!(pageTitle === 'Profile')) { %>
+                  <form action="/profile/<%= id %>" method="GET" id="profile"><button class="btn">Profile <img src="/icons/profile.svg" alt="profile"></button></form>
                 <% } %>
                 <form action="/logout" method="POST"><button class="btn" id="logout">Logout</button></form>
               </div>            

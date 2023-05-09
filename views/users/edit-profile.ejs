@@ -1,0 +1,45 @@
+<%- include('../shared/includes/head', {pageTitle : 'Profile'}) %>
+<link rel="stylesheet" href="/styles/landing.css">
+<link rel="stylesheet" href="/styles/show-profile.css">
+<link rel="stylesheet" href="/styles/forms.css">
+</head>
+<body>
+  <%- include('../shared/includes/nav', {pageTitle : 'Profile'}) %>
+    <main>
+      
+        <form action="/users/edit-profile/<%= id %>" method="POST" class="forms">
+            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+          
+            <p>
+                <label for="name" class="shadow">Name</label>
+                <input type="text" id="name" name="name" value="<%= user.name %>" required/>
+            </p>
+            <p>
+                <label for="email" class="shadow">Email</label>
+                <input type="text" id="email" name="email" value="<%= user.email %>" required/>
+            </p>
+            <p>
+                <label for="phone" class="shadow">Phone</label>
+                <input type="text" id="phone" name="phone" value="<%= user.phone %>" required/>
+            </p>
+            <p>
+                <label for="street" class="shadow">Street</label>
+                <input type="text" id="street" name="street" value="<%= user.address.street %>" required/>
+            </p>
+            <p>
+                <label for="city" class="shadow">City</label>
+                <input type="text" id="city" name="city" value="<%= user.address.city %>" required/>
+            </p>
+            <p>
+                <label for="country" class="shadow">Country</label>
+                <input type="text" id="country" name="country" value="<%= user.address.country %>" required/>
+            </p>
+          
+            <button class="btn">Save</button>
+            
+            
+        </form>
+    </main>
+    <%- include('../shared/includes/footer') %>
+</body>
+</html>
