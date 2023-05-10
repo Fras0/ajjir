@@ -39,6 +39,34 @@
   outline: none;
 }
 
+#map {
+  /* position:relative; */
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+#form-and-map{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+/* #info {
+  display: table;
+  position: relative;
+  margin: 0px auto;
+  word-wrap: anywhere;
+  white-space: pre-wrap;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+  text-align: center;
+  color: #222;
+  background: #fff;
+} */
+
 
 /* .drag-area{
   border: 2px dashed #fff;
