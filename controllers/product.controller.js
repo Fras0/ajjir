@@ -56,7 +56,7 @@ async function createNewProduct(req, res, next) {
   const product = new Product({
     ...productObj,
     image: req.file.filename,
-    // owner: req.session.email,
+    owner: req.session.passport.user.email,
   });
 
   try {

@@ -15,9 +15,9 @@ const bounds = [
   [31.596903867018, 32.2848772970581], // Northeast coordinates
 ];
 
-async function getPreciseLocation() {
+ function getPreciseLocation() {
   if (navigator.geolocation) {
-    await navigator.geolocation.getCurrentPosition(function (position) {
+     navigator.geolocation.getCurrentPosition(function (position) {
       currentLng = position.coords.longitude;
       currenLat = position.coords.latitude;
       console.log("Latitude: " + currenLat);

@@ -2,4 +2,6 @@
 
 /product-data
 
+/user-data
+
 .env

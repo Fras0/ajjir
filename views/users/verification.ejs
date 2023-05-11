@@ -1,0 +1,30 @@
+<%- include('../shared/includes/head', {pageTitle : 'Verification'}) %>
+<link rel="stylesheet" href="/styles/forms.css">
+
+</head>
+<body>
+    
+
+<form action="/users/verification/<%= id %>" method="post" enctype="multipart/form-data">
+    <div id="image-upload-control">
+        <p>
+          <label for="image" class="shadow">Image</label>
+          <input type="file" id="image" name="image" accept="image/png,image/jpg" >
+        </p>
+    
+        <img src="" alt="Selected image.">
+    </div>
+    <div id="image-upload-control">
+        <p>
+          <label for="image" class="shadow">Image</label>
+          <input type="file" id="image" name="image" accept="image/png,image/jpg" >
+        </p>
+    
+        <img src="" alt="Selected image.">
+    </div>
+
+    <button class="btn">Send</button>
+</form>
+
+</body>
+</html>
