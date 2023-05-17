@@ -53,7 +53,7 @@ async function signup(req, res, next) {
     return;
   }
 
-  const user = new User({...req.body});
+  const user = new User({ ...req.body, image: "profile.png" });
 
   try {
     const existsAllready = await user.existsAllready();
@@ -92,7 +92,7 @@ function getLogIn(req, res) {
 }
 
 async function login(req, res, next) {
-  const user = new User({...req.body});
+  const user = new User({ ...req.body });
   let existingUser;
   try {
     existingUser = await user.getUserWithSameEmail();

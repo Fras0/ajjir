@@ -66,7 +66,6 @@ async function createNewProduct(req, res, next) {
     return;
   }
 
-  
   res.redirect("/products");
   // res.json({ message: "product added", product: product });
 }
@@ -74,8 +73,15 @@ async function createNewProduct(req, res, next) {
 async function getProductDetails(req, res, next) {
   try {
     const product = await Product.findById(req.params.id);
-    res.json({ message: "product page", product: product });
-    // res.render("products/update-product", { product: product });
+    const category = product.category;
+    const similarProducts = await Product.findBySameCategory(category);
+    const user = await User.findByEmail(product.owner);
+    // res.json({ message: "product page", product: product });
+    res.render("products/show-product", {
+      product: product,
+      user: user,
+      similarProducts: similarProducts,
+    });
   } catch (error) {
     next(error);
   }

@@ -51,7 +51,11 @@
       <ul id="products-grid">
         <% for (const product of products){ %>
              <li>
-                <%- include('../shared/includes/product-item' , { product: product }) %>
+              <form action="/products/<%= product.id %>" method="get">
+                <button>
+                  <%- include('../shared/includes/product-item' , { product: product }) %>
+                </button>
+              </form>
             </li>
         <% } %>
       </ul>

@@ -11,7 +11,11 @@ router.get("/users/edit-profile/:id", userController.getEditProfile);
 
 router.get("/users/verification/:id", userController.getVerification);
 
-router.post("/users/verification/:id", uploadVerificationImages,userController.verification);
+router.post(
+  "/users/verification/:id",
+  uploadVerificationImages,
+  userController.verification
+);
 
 router.post("/users/edit-profile/:id", userController.editProfile);
 

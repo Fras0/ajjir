@@ -1,0 +1,85 @@
+<%- include('../shared/includes/head', { pageTitle: 'Show Product' }) %>
+<link rel="stylesheet" href="/styles/landing.css">
+<link rel="stylesheet" href="/styles/show-profile.css">
+<link rel="stylesheet" href="/styles/all-products.css">
+<link rel="stylesheet" href="/styles/show-product.css">
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+<script src="/scripts/show-product-prices.js" defer></script>
+
+
+</head>
+<body>
+  <%- include('../shared/includes/nav', {pageTitle: 'Add New Product', id: locals.uid}) %>
+  <main>
+    <ul id="product">
+      <li id="prices-and-reviews">
+        <h2><%= product.name %></h2>
+        <h6><%= product.description %></h6>
+        <div class="product-prices">
+          <ul>
+            <li>
+              <p><%= product.price %></p>
+              <span>hour</span>
+            </li>
+            <li>
+              <p>50</p>
+              <span>Day</span>
+            </li>
+            <li>
+              <p>150</p>
+              <span>Week</span>
+            </li>
+            <li>
+              <p>400</p>
+              <span>Month</span>
+            </li>
+          </ul>
+        </div>
+        <p id="rep">
+          <a href="">
+            <img src="/icons/report.svg" alt="report"> <span>Report...</span>
+          </a>
+        </p>
+        <div id="product-reviews">
+          <div id="review">
+            <h4>Reviews</h4>
+            <span><a href="" class="link">All reviews</a></span>
+          </div>
+          <ul id="review-details">
+            <% for(let i = 0; i <= 6 ; i++) { %>
+              <li><%- include('../shared/includes/review-item') %></li>
+            <% } %>
+          </ul>
+        </div>
+      </li>
+      <li id="product-similar">
+        <ul id="product-similar-ul">
+          <li id="product-data">
+            <img src="<%= product.imageUrl %>" alt="<%= product.name %>" id="product-data-img" />
+            <div id="product-data-profile">
+              <img src="/images/profile.png" alt="profile">
+              <h3><%= user.name %></h3>
+            </div>
+            <a class="link" href="">Other items from this user</a>
+            <div><a class="link" href="">Show on map</a></div>
+            <button class="btn">Rent Now</button>
+          </li>
+          <li id="similar">
+            <h4 id="jj">Similar Items</h4>
+            <ul id="products-grid">
+              <% for (const similarProduct of similarProducts) { %>
+                <% if (similarProduct.id !== product.id) { %>
+                  <li><%- include('../shared/includes/product-item' , { product: similarProduct }) %></li>
+                <% } %>
+              <% } %>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </main>
+<%- include('../shared/includes/footer') %>

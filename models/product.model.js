@@ -41,6 +41,23 @@ class Product {
     return new Product(product);
   }
 
+  static async findBySameCategory(productCategory) {
+    const products = await db
+      .getDb()
+      .collection("products")
+      .find({ category: productCategory }).toArray();
+
+    if (!products) {
+      const error = new Error("Could not find products with provided category.");
+      error.code = 404;
+      throw error;
+    }
+
+    return products.map(function (productDocument) {
+      return new Product(productDocument);
+    });
+  }
+
   static async findAll(req) {
     try {
       const page = parseInt(req.query.page) - 1 || 0;

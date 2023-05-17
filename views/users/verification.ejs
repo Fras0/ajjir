@@ -1,6 +1,8 @@
 <%- include('../shared/includes/head', {pageTitle : 'Verification'}) %>
 <link rel="stylesheet" href="/styles/forms.css">
 
+<script src="/scripts/capture-image.js" defer></script>
+
 </head>
 <body>
     
@@ -8,19 +10,40 @@
 <form action="/users/verification/<%= id %>" method="post" enctype="multipart/form-data">
     <div id="image-upload-control">
         <p>
-          <label for="image" class="shadow">Image</label>
-          <input type="file" id="image" name="image" accept="image/png,image/jpg" >
+          <label for="id" class="shadow">Id</label>
+          <input type="file" id="id" name="image" accept="image/png,image/jpg" >
         </p>
     
-        <img src="" alt="Selected image.">
+        <!-- <img src="" alt="Selected image."> -->
     </div>
     <div id="image-upload-control">
         <p>
           <label for="image" class="shadow">Image</label>
-          <input type="file" id="image" name="image" accept="image/png,image/jpg" >
+          <input type="file" id="image" name="image" accept="image/png,image/jpg" required>
+
+          <div class="row" style="border: 1px #000 solid;">
+
+            <div class="col-lg-5">
+                <div class="container">
+                    <video autoplay="true" id="camera" width="320" height="240">
+    
+                    </video>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <input class="btn" type="button" id="btnStart" value="Start Camera"></input>
+                <input class="btn" type="button" id="btnCapture" value="Click Image"></input>
+            </div>
+            <div class="col-lg-5">
+                <div class="container">
+                    <canvas id="myCanvas" width="800" height="600"></canvas>
+                </div>
+            </div>
+        </div>
+
         </p>
     
-        <img src="" alt="Selected image.">
+        <!-- <img src="" alt="Selected image."> -->
     </div>
 
     <button class="btn">Send</button>

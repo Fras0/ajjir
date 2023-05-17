@@ -8,6 +8,8 @@ class User {
     this.password = userData.password;
     this.phone = userData.phone;
     this.name = userData.name;
+    this.image = userData.image; // the name of the image file
+    this.updateImageData();
     this.address = {
       street: userData.street,
       city: userData.city,
@@ -21,6 +23,11 @@ class User {
     }
   }
 
+  updateImageData() {
+    this.imagePath = `user-data/profile-images/${this.image}`;
+    this.imageUrl = `/users/assets/images/${this.image}`;
+  }
+
   static findById(userId) {
     const uid = new mongodb.ObjectId(userId);
 
@@ -28,6 +35,13 @@ class User {
       .getDb()
       .collection("users")
       .findOne({ _id: uid }, { projection: { password: 0 } });
+  }
+
+  static findByEmail(email) {
+    return db
+      .getDb()
+      .collection("users")
+      .findOne({ email: email }, { projection: { password: 0 } });
   }
 
   getUserWithSameEmail() {
@@ -50,6 +64,7 @@ class User {
       name: this.name,
       phone: this.phone,
       address: this.address,
+      image: this.image,
     });
   }
 
@@ -63,6 +78,7 @@ class User {
       name: this.name,
       phone: this.phone,
       address: this.address,
+      image: this.image,
     };
 
     if (this.id) {
