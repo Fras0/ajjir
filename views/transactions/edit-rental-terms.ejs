@@ -1,0 +1,38 @@
+<%- include('../shared/includes/head', { pageTitle: 'Show Product' }) %>
+<link rel="stylesheet" href="/styles/landing.css">
+<link rel="stylesheet" href="/styles/show-profile.css">
+<link rel="stylesheet" href="/styles/all-products.css">
+<link rel="stylesheet" href="/styles/new-product.css">
+
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+<script src="/scripts/map.js" defer></script>
+
+</head>
+<body>
+  <%- include('../shared/includes/nav', {pageTitle: 'Add New Product', id: locals.uid}) %>
+  <main>
+    <h1>rental-terms</h1>
+    <form action="/rental-terms/<%= product.id %>" method="post">
+    <p>
+        <input type="hidden" id="lng" name="longitude">
+    </p>
+    <p>
+        <input type="hidden" id="lat" name="latitude">    
+    </p>
+    <div>
+        <pre id="info"></pre>
+        <div id="map"></div>
+    </div>
+    
+        <button>send reqeust</button>   
+    </form>
+  </main>
+  <%- include('../shared/includes/footer') %>
+</body>
+</html>

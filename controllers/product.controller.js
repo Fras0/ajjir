@@ -49,6 +49,7 @@ async function createNewProduct(req, res, next) {
   // console.log(req.session.uid);
   // console.log(req.user);
 
+  const user  = await User.findById(req.session.uid);
   const productObj = { ...req.body };
 
   productObj.category = productObj.category.toLowerCase();
@@ -56,7 +57,8 @@ async function createNewProduct(req, res, next) {
   const product = new Product({
     ...productObj,
     image: req.file.filename,
-    owner: req.session.passport.user.email,
+    // owner: req.session.passport.user.email,
+    owner: user.email,
   });
 
   try {

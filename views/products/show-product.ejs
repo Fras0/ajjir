@@ -66,7 +66,9 @@
             </div>
             <a class="link" href="">Other items from this user</a>
             <div><a class="link" href="">Show on map</a></div>
-            <button class="btn">Rent Now</button>
+            <form action="/rental-terms/<%= product.id %>" method="get">
+              <button class="btn">Rent Now</button>
+            </form>
           </li>
           <li id="similar">
             <h4 id="jj">Similar Items</h4>
