@@ -9,6 +9,8 @@ class User {
     this.phone = userData.phone;
     this.name = userData.name;
     this.image = userData.image; // the name of the image file
+    this.points = +userData.points;
+    this.balance = +userData.balance;
     this.updateImageData();
     this.address = {
       street: userData.street,
@@ -65,6 +67,8 @@ class User {
       phone: this.phone,
       address: this.address,
       image: this.image,
+      points: 20,
+      balance: 0,
     });
   }
 
@@ -78,7 +82,11 @@ class User {
       name: this.name,
       phone: this.phone,
       address: this.address,
+      points: this.points,
+      balance: this.balance,
       image: this.image,
+      points:this.points,
+      balance:this.balance,
     };
 
     if (this.id) {

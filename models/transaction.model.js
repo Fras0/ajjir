@@ -39,7 +39,7 @@ class Transaction {
       .collection("transactions")
       .findOne({ _id: transId });
 
-    if (!product) {
+    if (!transaction) {
       const error = new Error("Could not find transaction with provided id.");
       error.code = 404;
       throw error;
@@ -66,14 +66,14 @@ class Transaction {
       const transactionId = new mongodb.ObjectId(this.id);
 
 
-      await db.getDb().collection("transactions").updateOne(
+      return await db.getDb().collection("transactions").updateOne(
         { _id: transactionId },
         {
           $set: transactionData,
         }
       );
     } else {
-      await db.getDb().collection("transactions").insertOne(transactionData);
+      return await db.getDb().collection("transactions").insertOne(transactionData);
     }
   }
 

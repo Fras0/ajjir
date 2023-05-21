@@ -49,7 +49,9 @@ async function createNewProduct(req, res, next) {
   // console.log(req.session.uid);
   // console.log(req.user);
 
-  const user  = await User.findById(req.session.uid);
+  const user = await User.findById(req.session.uid);
+  const newUser = new User(user);
+  
   const productObj = { ...req.body };
 
   productObj.category = productObj.category.toLowerCase();
@@ -63,6 +65,14 @@ async function createNewProduct(req, res, next) {
 
   try {
     await product.save();
+  } catch (error) {
+    next(error);
+    return;
+  }
+
+  newUser.points = newUser.points - 1;
+  try {
+    await newUser.save();
   } catch (error) {
     next(error);
     return;

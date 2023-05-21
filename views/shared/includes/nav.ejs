@@ -22,20 +22,22 @@
                 </svg>
                 <div class="notifi-box" id="box">
                   <% for (const notification of locals.notifications) { %>
-                    <div class="notifi-item">
-                      <div class="text">
-                        <h4><%= notification.title %></h4>
-                        <p><%= notification.content %></p>
-                        <time datetime="<%= notification.history %>">
-                          <%= notification.history.toLocaleDateString("en-US", {
-                          weekday: "long",
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                          }) %>
-                        </time>
-                      </div> 
-                    </div>
+                    <form action="/show-item-request/<%= notification.transactionId %>" method="get">
+                      <button class="notifi-item">
+                        <div class="text">
+                          <h4><%= notification.title %></h4>
+                          <p><%= notification.content %></p>
+                          <time datetime="<%= notification.history %>">
+                            <%= notification.history.toLocaleDateString("en-US", {
+                            weekday: "long",
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                            }) %>
+                          </time>
+                        </div> 
+                      </button>
+                    </form>
                   <% } %>
                 </div> 
                 <% if (!(pageTitle === 'Profile')) { %>

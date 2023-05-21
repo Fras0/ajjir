@@ -9,6 +9,7 @@ class Notification {
     this.history = notificationData.history;
     this.user = notificationData.user;
     this.status = notificationData.status;
+    this.transactionId = notificationData.transactionId;
 
     if (notificationData._id) {
       this.id = notificationData._id.toString();
@@ -69,6 +70,7 @@ class Notification {
       history: this.history,
       user: this.user,
       status: this.status,
+      transactionId: this.transactionId,
     };
 
     if (this.id) {
