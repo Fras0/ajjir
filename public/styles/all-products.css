@@ -94,15 +94,22 @@ main {
   font-size: 1rem;
 }
 
-#image p {
-  position: absolute;
+#prod-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1rem auto;
+}
+
+#prod-name p {
+  /* position: absolute; */
   color: #06d6a0;
   background-color: var(--color-black);
   width: 7rem;
   border-radius: 15px;
   font-weight: 600;
   font-size: 1.25rem;
-  margin-left: 1rem;
+  margin: 0 0.25rem;
 }
 
 aside {

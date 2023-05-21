@@ -18,7 +18,7 @@ class Notification {
   static async findById(notificationId) {
     let notifId;
     try {
-      transId = new mongodb.ObjectId(notificationId);
+      notifId = new mongodb.ObjectId(notificationId);
     } catch (error) {
       error.code = 404;
       throw error;
@@ -35,6 +35,31 @@ class Notification {
     }
 
     return new Notification(notification);
+  }
+
+  static async findByUserId(userId) {
+    let uid;
+    try {
+      uid = new mongodb.ObjectId(userId);
+    } catch (error) {
+      error.code = 404;
+      throw error;
+    }
+    const notifications = await db
+      .getDb()
+      .collection("notifications")
+      .find({ user: uid })
+      .toArray();
+
+    if (!notifications) {
+      const error = new Error("Could not find notification with provided id.");
+      error.code = 404;
+      throw error;
+    }
+
+    return notifications.map(function (notificationDocument) {
+      return new Notification(notificationDocument);
+    });
   }
 
   async save() {

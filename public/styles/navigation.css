@@ -48,6 +48,12 @@ nav input {
   align-items: center;
 }
 
+#auth #notifications {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
 #profile {
   width: 7rem;
   display: flex;

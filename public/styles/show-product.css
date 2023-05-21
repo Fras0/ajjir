@@ -215,8 +215,13 @@
   margin: 0.5rem auto;
 }
 
+#product-data form {
+  text-align: center;
+}
+
 #product-data button {
-  margin: 1rem 3rem;
+  width: 90%;
+  margin: 1rem auto;
 }
 
 #similar {
@@ -241,10 +246,10 @@
 
 #products-grid {
   height: fit-content;
-  
   display: flex;
   flex-direction: row;
-  overflow-x: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 #products-grid li {

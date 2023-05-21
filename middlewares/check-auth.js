@@ -1,20 +1,26 @@
 const passport = require("passport");
+const Notification = require("../models/notifications.model");
 
-function checkAuthStatus(req, res, next) {
-    const uid = req.session.uid;
-    const passport = req.session.passport;
-  
-    if (!uid && !passport) {
-      // console.log('not auth!!!!');
-      return next();
-    }
-  
-    res.locals.uid = uid;
-    res.locals.passport = passport;
-    res.locals.isAuth = true;
-    // console.log('is auth!!!!');
-    next();
+async function checkAuthStatus(req, res, next) {
+  const uid = req.session.uid;
+  const passport = req.session.passport;
+
+  if (!uid && !passport) {
+    // console.log('not auth!!!!');
+    return next();
   }
+
+  const notifications = await Notification.findByUserId(uid);
   
-  module.exports = checkAuthStatus;
-  
+  if (notifications) {
+    res.locals.notifications = notifications;
+  }
+
+  res.locals.uid = uid;
+  res.locals.passport = passport;
+  res.locals.isAuth = true;
+  // console.log('is auth!!!!');
+  next();
+}
+
+module.exports = checkAuthStatus;

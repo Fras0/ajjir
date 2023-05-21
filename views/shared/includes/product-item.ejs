@@ -1,10 +1,12 @@
 <article class="product-item">
-  <div id="image">
-    <p>Available</p>
+  <div>
     <img src="<%= product.imageUrl %>" alt="<%= product.name %>" />
   </div>
   <div class="product-item-content">
-    <h2><%= product.name %></h2>
+    <div id="prod-name">
+      <h2><%= product.name %></h2>
+      <p>Available</p>
+    </div>
     <div class="product-item-prices">
       <ul>
         <li>
@@ -25,7 +27,3 @@
     </div>
   </div>
 </article>
-<!-- <a class="btn btn-alt" href="/products/<%= product.id %>">View & Edit</a> -->
-<!-- <button class="btn btn-alt" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>">Delete</button> -->
-
-<!-- <a class="btn btn-alt" href="/products/<%= product.id %>">View Details</a> -->

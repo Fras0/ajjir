@@ -17,6 +17,7 @@ async function getRentalTerms(req, res, next) {
     customerData: customerData,
   });
 }
+
 async function addTransaction(req, res, next) {
   const product = await Product.findById(req.params.id);
   const ownerData = await User.findByEmail(product.owner);
@@ -46,10 +47,10 @@ async function addTransaction(req, res, next) {
   }
 
   notificationData = {
-    title: "Item request",
+    title: "Item Request",
     content: `${customerData.name} has requested your item: ${product.name}`,
     history: new Date(),
-    user: ownerData.email,
+    user: ownerData._id,
     status: "unread",
   };
 
