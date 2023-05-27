@@ -1,0 +1,335 @@
+#add-product-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 215, 120, 0.2);
+  z-index: 100;
+  display: none;
+}
+
+#add-product-overlay .add-product-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-black);
+  padding: 20px;
+  border-radius: 50px;
+  width: 70%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cancel-prod {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  color: var(--color-yellow-100);
+  background-color: var(--color-gray-800);
+  border-radius: 50px;
+  font-size: 1.25rem;
+  font-weight: 400;
+  padding: 0.5rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.cancel-prod:hover {
+  color: var(--color-yellow-300);
+  background-color: var(--color-gray-500);
+}
+
+.text-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-text {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.item-step {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #8a8a8a;
+}
+
+.adding-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem auto;
+  gap: 3rem;
+}
+
+.input-instruction {
+  padding: 0;
+  padding-left: 1.5rem;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.proceed {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.back-prod {
+  color: var(--color-yellow-100);
+  background-color: var(--color-gray-800);
+  border-radius: 50px;
+  font-size: 1.25rem;
+  font-weight: 400;
+  padding: 0.6rem;
+  margin: 0 1rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.back-prod:hover {
+  color: var(--color-yellow-300);
+  background-color: var(--color-gray-500);
+}
+
+/* #add-product-overlay .steps {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-black);
+  padding: 20px;
+  border-radius: 50px;
+  width: 70%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+} */
+
+#add-product-overlay #step-1 {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#add-product-overlay #step-1 img {
+  width: 25.5rem;
+  height: 27.75rem;
+  overflow: hidden;
+  border-radius: 15px;
+  object-fit: fill;
+}
+
+#add-product-overlay #step-1 .proceed {
+  padding-left: 50rem;
+}
+
+#add-product-overlay #step-2 {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#add-product-overlay #step-2 .adding-inputs {
+  gap: 3rem;
+  margin: 1rem auto;
+}
+
+#add-product-overlay #step-2 .adding-inputs .input-instruction {
+  padding: 0 3rem;
+}
+
+#add-product-overlay #step-2 .adding-inputs div {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#add-product-overlay #step-2 .adding-inputs div input {
+  width: 100%;
+  height: 3rem;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  padding-left: 1rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  background-color: #fff8e8;
+  color: #b48b00;
+}
+
+#add-product-overlay #step-2 .adding-inputs div input::placeholder {
+  color: #b48b00;
+}
+
+#add-product-overlay #step-2 .adding-inputs div textarea {
+  max-width: 25rem;
+  min-width: 25rem;
+  max-height: 10rem;
+  min-height: 10rem;
+  width: 25rem;
+  height: 10rem;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  padding-left: 1rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  background-color: #fff8e8;
+  color: #b48b00;
+}
+
+#add-product-overlay #step-2 .adding-inputs div textarea::placeholder {
+  color: #b48b00;
+}
+
+#add-product-overlay #step-2 .proceed {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 42rem;
+}
+
+#add-product-overlay #step-3 {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#add-product-overlay #step-3 .adding-inputs {
+  gap: 3rem;
+  margin: 10rem auto;
+}
+
+#add-product-overlay #step-3 .adding-inputs div {
+  width: 70%;
+}
+
+#add-product-overlay #step-3 .adding-inputs div select {
+  width: 100%;
+  height: 4rem;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  padding: 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  background-color: #fff8e8;
+  color: #b48b00;
+  text-align: center;
+}
+
+#add-product-overlay #step-3 .proceed {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 45rem;
+}
+
+#add-product-overlay #step-4 {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#add-product-overlay #step-4 .adding-inputs {
+  margin: 1rem auto;
+}
+
+#add-product-overlay #step-4 .adding-inputs #map {
+  width: 30rem;
+  height: 30rem;
+  border-radius: 15px;
+}
+
+#add-product-overlay #step-4 .proceed {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 45rem;
+}
+
+#add-product-overlay #step-5 {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#add-product-overlay #step-5 .adding-inputs {
+  margin: 5rem auto;
+}
+
+#add-product-overlay #step-5 .adding-inputs div {
+  width: 70%;
+}
+
+#add-product-overlay #step-5 .adding-inputs div input {
+  width: 9rem;
+  height: 3rem;
+  text-align: center;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  padding-left: 1rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  background-color: #fff8e8;
+  color: #b48b00;
+}
+
+#add-product-overlay #step-5 .adding-inputs div input::placeholder {
+  color: #b48b00;
+}
+
+#add-product-overlay #step-5 .adding-inputs div .time-duration {
+  display: inline-block;
+  width: 9rem;
+  height: 3rem;
+  text-align: center;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  background-color: #fff8e8;
+  color: #b48b00;
+}
+
+#add-product-overlay #step-6 {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#add-product-overlay #step-6 h3 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 6.25rem;
+}
+
+#add-product-overlay #step-6 p {
+  font-weight: 500;
+  font-size: 2rem;
+}

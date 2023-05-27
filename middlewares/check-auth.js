@@ -1,5 +1,6 @@
 const passport = require("passport");
 const Notification = require("../models/notifications.model");
+const User = require("../models/user.model");
 
 async function checkAuthStatus(req, res, next) {
   const uid = req.session.uid;
@@ -11,9 +12,15 @@ async function checkAuthStatus(req, res, next) {
   }
 
   const notifications = await Notification.findByUserId(uid);
+  const user = await User.findById(uid);
   
   if (notifications) {
     res.locals.notifications = notifications;
+  }
+
+  if (user) {
+    res.locals.jPoints = user.points;
+    res.locals.balance = user.balance;
   }
 
   res.locals.uid = uid;

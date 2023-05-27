@@ -3,18 +3,24 @@
 <link rel="stylesheet" href="/styles/show-profile.css">
 <link rel="stylesheet" href="/styles/all-products.css">
 <link rel="stylesheet" href="/styles/show-product.css">
+<link rel="stylesheet" href="/styles/money-overlay.css">
+<link rel="stylesheet" href="/styles/notifications.css">
+
+<script src="/scripts/notification.js" defer></script>
 
 <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
 <script src="/scripts/show-product-prices.js" defer></script>
+<script src="/scripts/money-overlay.js" defer></script>
 
 
 </head>
 <body>
   <%- include('../shared/includes/nav', {pageTitle: 'Add New Product', id: locals.uid}) %>
   <main>
+    <%- include('../shared/includes/money-overlay') %>
     <ul id="product">
       <li id="prices-and-reviews">
         <h2><%= product.name %></h2>
@@ -23,19 +29,19 @@
           <ul>
             <li>
               <p><%= product.price %></p>
-              <span>hour</span>
-            </li>
-            <li>
-              <p>50</p>
               <span>Day</span>
             </li>
             <li>
-              <p>150</p>
+              <p>50</p>
               <span>Week</span>
             </li>
             <li>
-              <p>400</p>
+              <p>150</p>
               <span>Month</span>
+            </li>
+            <li>
+              <p>400</p>
+              <span>Year</span>
             </li>
           </ul>
         </div>
@@ -66,9 +72,13 @@
             </div>
             <a class="link" href="">Other items from this user</a>
             <div><a class="link" href="">Show on map</a></div>
-            <form action="/rental-terms/<%= product.id %>" method="get">
-              <button class="btn">Rent Now</button>
-            </form>
+            <% if (user._id == locals.uid) { %>
+              <p>This is Your Item!</p>
+            <% } else { %>
+              <form action="/rental-terms/<%= product.id %>" method="get">
+                <button class="btn">Rent Now</button>
+              </form>
+            <% } %>
           </li>
           <li id="similar">
             <h4 id="jj">Similar Items</h4>

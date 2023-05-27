@@ -1,20 +1,17 @@
-const imagePickerElement = document.querySelector(
-  "#image-upload-control input"
-);
-const imagePreviewElement = document.querySelector("#image-upload-control img");
+const imagePickerElement = document.querySelector("#step-1 input");
+const imagePreviewElement = document.querySelector("#step-1 img");
 
 function updateImagePreview(event) {
   const files = imagePickerElement.files;
 
   if (!files || files.length === 0) {
-    imagePreviewElement.style.display = "none";
+    imagePreviewElement.setAttribute("src", "/images/img-upload.png");
     return;
   }
 
   const pickedFile = files[0];
 
   imagePreviewElement.src = URL.createObjectURL(pickedFile);
-  imagePreviewElement.style.display = "block";
 }
 
 imagePickerElement.addEventListener("change", updateImagePreview);
@@ -40,7 +37,6 @@ imagePickerElement.addEventListener("change", updateImagePreview);
 //   dropArea.classList.add("active");
 //   showFile(); //calling function
 // });
-
 
 // //If user Drag File Over DropArea
 // dropArea.addEventListener("dragover", (event)=>{

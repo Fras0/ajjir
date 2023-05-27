@@ -2,6 +2,11 @@ body {
   min-height: auto;
 }
 
+.notifi-box {
+  top: 5.25rem;
+  right: 14.5rem;
+}
+
 main {
   width: 95%;
 }

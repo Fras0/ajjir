@@ -73,13 +73,20 @@ a {
 }
 
 .btn-alt {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-yellow-100);
+  cursor: pointer;
+  width: 50%;
   background-color: transparent;
-  border: 2px solid var(--color-yellow-100);
+  border: none;
+  /* border-radius: 15px; */
 }
 
 .btn-alt:hover,
 .btn-alt:active {
-  background-color: transparent;
+  background-color: rgb(104, 106, 109);
+  border-radius: 15px;
 }
 
 

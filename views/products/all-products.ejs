@@ -1,13 +1,13 @@
 <%- include('../shared/includes/head', {pageTitle : 'All products'}) %>
 <link rel="stylesheet" href="/styles/navigation.css">
-<link rel="stylesheet" href="/styles/all-products.css">
 <link rel="stylesheet" href="/styles/notifications.css">
+<link rel="stylesheet" href="/styles/all-products.css">
 <script src="/scripts/filter-search.js" defer></script>
 <script src="/scripts/notification.js" defer></script>
 </head>
 <body>
   <header>
-    <%- include('../shared/includes/search-nav', {id: locals.uid}) %>
+    <%- include('../shared/includes/search-nav', {pageTitle : 'All products', id: locals.uid}) %>
   </header>
   <main>
     <!-- <a href="/products/new" class="btn">Add</a> -->

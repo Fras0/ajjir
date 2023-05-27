@@ -7,18 +7,16 @@ class Transaction {
     this.itemId = transactionData.itemId;
     this.owner = transactionData.owner;
     this.customer = transactionData.customer;
-    this.origin = {
-      longitude: transactionData.originLng,
-      latitude: transactionData.originLat,
-    };
-    this.dest = {
-      longitude: transactionData.destLng,
-      latitude: transactionData.destLat,
-    };
+    this.originLng = transactionData.originLng;
+    this.originLat = transactionData.originLat;
+    this.destLng = transactionData.destLng;
+    this.destLat = transactionData.destLat;
     this.price = +transactionData.price;
     this.delivered = transactionData.delivered;
     this.back = transactionData.back;
     this.status = transactionData.status;
+    this.startDate = transactionData.startDate;
+    this.endDate = transactionData.endDate;
     this.maxDuration = transactionData.maxDuration;
 
     if (transactionData._id) {
@@ -53,18 +51,21 @@ class Transaction {
       itemId: this.itemId,
       owner: this.owner,
       customer: this.customer,
-      origin: this.origin,
-      des: this.dest,
+      originLng: this.originLng,
+      originLat: this.originLat,
+      destLng: this.destLng,
+      destLat: this.destLat,
       price: this.price,
       delivered: this.delivered,
       back: this.back,
       status: this.status,
       maxDuration: this.maxDuration,
+      startDate: this.startDate,
+      endDate: this.endDate,
     };
 
     if (this.id) {
       const transactionId = new mongodb.ObjectId(this.id);
-
 
       return await db.getDb().collection("transactions").updateOne(
         { _id: transactionId },
@@ -73,13 +74,19 @@ class Transaction {
         }
       );
     } else {
-      return await db.getDb().collection("transactions").insertOne(transactionData);
+      return await db
+        .getDb()
+        .collection("transactions")
+        .insertOne(transactionData);
     }
   }
 
   remove() {
     const transactionId = new mongodb.ObjectId(this.id);
-    return db.getDb().collection("transactoins").deleteOne({ _id: transactionId });
+    return db
+      .getDb()
+      .collection("transactoins")
+      .deleteOne({ _id: transactionId });
   }
 }
 

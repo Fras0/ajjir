@@ -41,6 +41,7 @@ async function verification(req, res, next) {
   const url = `http://127.0.0.1:4000/predict?id_image=${id_image}&person_image=${user_image}`;
 
   let response;
+  let responseObject;
   try {
     response = await fetch(url, {
       method: "get",
@@ -48,10 +49,22 @@ async function verification(req, res, next) {
         "Content-Type": "application/json",
       },
     });
-    console.log(await response.json());
+    responseObject = new Object(await response.json());
   } catch (error) {
     return next(error);
   }
+
+  if (responseObject.prediction.similarity) {
+    const user = await User.findById(res.locals.uid);
+    const newUser = new User(user)
+    try{
+      await newUser.verify();
+    } catch (error) {
+      next(error);
+      return;
+    }
+  }
+
   res.redirect(`/users/edit-profile/${res.locals.uid}`);
 }
 

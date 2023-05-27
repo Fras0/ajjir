@@ -2,10 +2,16 @@
 <link rel="stylesheet" href="/styles/landing.css">
 <link rel="stylesheet" href="/styles/show-profile.css">
 <link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/money-overlay.css">
+<link rel="stylesheet" href="/styles/notifications.css">
+
+<script src="/scripts/notification.js" defer></script>
+<script src="/scripts/money-overlay.js" defer></script>
 </head>
 <body>
   <%- include('../shared/includes/nav', {pageTitle : 'Profile'}) %>
-    <main>
+  <main>
+      <%- include('../shared/includes/money-overlay') %>
       
         <form action="/users/edit-profile/<%= id %>" method="POST" class="forms">
             <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">

@@ -1,16 +1,21 @@
 <%- include('../shared/includes/head' , {pageTitle: 'Profile'}) %>
 <link rel="stylesheet" href="/styles/landing.css">
 <link rel="stylesheet" href="/styles/show-profile.css">
+<link rel="stylesheet" href="/styles/money-overlay.css">
+<link rel="stylesheet" href="/styles/notifications.css">
+
 
 <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-  <script src="/scripts/notification.js" defer></script>
+<script src="/scripts/notification.js" defer></script>
+<script src="/scripts/money-overlay.js" defer></script>
 </head>
 <body>
-<%- include('../shared/includes/nav', { pageTitle: 'Profile' ,id: id }) %>
+  <%- include('../shared/includes/nav', { pageTitle: 'Profile' ,id: id }) %>
 <main>
+  <%- include('../shared/includes/money-overlay') %>
   <ul id="profile-overview">
     <li id="images">
       <img src="/images/cover.png" alt="cover" id="cover">
@@ -40,15 +45,22 @@
           <div>
             <p>My Items</p>
             <p>Rent History</p>
-            <p>Saved Cards</p>
             <p>Settings</p>
+            <a href="/buy-jj/<%= id %>" id="jj">Buy JPoints</a>
           </div>
         </li>
         <li id="info-verify">
           <section id="verify">
             <p>Account Verification</p>
-            <div><img src="/icons/right.svg" alt="rigth"><span>You're All Set</span></div>
-            <button class="btn">Add Bank Account</button>
+            <% if (user.isVerified) { %>
+              <div><img src="/icons/right.svg" alt="right"><span id="right">You're All Set</span></div>
+              <button class="btn">Add Bank Account</button>
+            <% } else { %>
+              <div><img src="/icons/wrong.svg" alt="right"><span id="wrong">You're Not Set</span></div>
+              <form action="/users/verification/<%= id %>" method="GET">
+                <button class="btn">Verify Your Account!</button>
+              </form>
+            <% } %>
           </section>
           <section id="user-info">
             <div>
@@ -56,11 +68,6 @@
               <p><span><img src="/icons/call.svg" alt="call"></span> <%= user.phone %></p>
               <form action="/users/edit-profile/<%= id %>" method="get">
                 <span><img src="/icons/edit.svg" alt="edit"></span> <button class="link">Edit Profile Details</button>
-              </form>
-              <form action="/buy-jj/30" method="post">
-                <button>30jj</button>
-                <button formaction="/buy-jj/50">50jj</button>
-                <button formaction="/buy-jj/100">100jj</button>
               </form>
 
             </div>

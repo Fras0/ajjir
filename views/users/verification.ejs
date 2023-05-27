@@ -1,53 +1,74 @@
 <%- include('../shared/includes/head', {pageTitle : 'Verification'}) %>
+<link rel="stylesheet" href="/styles/landing.css">
+<link rel="stylesheet" href="/styles/show-profile.css">
 <link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/money-overlay.css">
+<link rel="stylesheet" href="/styles/verification.css">
+<link rel="stylesheet" href="/styles/notifications.css">
 
+
+<script src="/scripts/money-overlay.js" defer></script>
 <script src="/scripts/capture-image.js" defer></script>
+<script src="/scripts/notification.js" defer></script>
+<script src="/scripts/image-preview-verification.js" defer></script>
 
 </head>
 <body>
-    
+  <%- include('../shared/includes/nav', {pageTitle: 'Verification', id: id}) %>
+<main>
+  <%- include('../shared/includes/money-overlay') %>
 
-<form action="/users/verification/<%= id %>" method="post" enctype="multipart/form-data">
-    <div id="image-upload-control">
+  <form action="/users/verification/<%= id %>" method="post" enctype="multipart/form-data" id="verify-form">
+  <div class="verify" >
+      <div class="verify-title">
+        <p>National ID Verification</p>
+        <p>National ID</p>
+      </div>
+      <div id="adding-id-card">
         <p>
-          <label for="id" class="shadow">Id</label>
-          <input type="file" id="id" name="image" accept="image/png,image/jpg" >
+          Make sure to center The ID in the frame.<br>
+          Make sure the room is well lit.
         </p>
-    
-        <!-- <img src="" alt="Selected image."> -->
-    </div>
-    <div id="image-upload-control">
-        <p>
-          <label for="image" class="shadow">Image</label>
-          <input type="file" id="image" name="image" accept="image/png,image/jpg" required>
-
-          <div class="row" style="border: 1px #000 solid;">
-
-            <div class="col-lg-5">
-                <div class="container">
-                    <video autoplay="true" id="camera" width="320" height="240">
-    
-                    </video>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <input class="btn" type="button" id="btnStart" value="Start Camera"></input>
-                <input class="btn" type="button" id="btnCapture" value="Click Image"></input>
-            </div>
-            <div class="col-lg-5">
-                <div class="container">
-                    <canvas id="myCanvas" width="800" height="600"></canvas>
-                </div>
-            </div>
+        <div>
+          <img src="/images/id-card.png" alt="id-card">
+          <input type="file" id="id" name="image" accept="image/*" >
         </div>
+      </div>
+  </div>
 
-        </p>
-    
-        <!-- <img src="" alt="Selected image."> -->
+  <div class="verify">
+    <div class="verify-title">
+      <p>National ID Verification </p>
+      <p>Personal Photo</p>
+      <p>
+        Make sure to center Your Face in the frame. <br>
+        Make sure the room is well lit.
+      </p>
     </div>
-
-    <button class="btn">Send</button>
-</form>
+    <div class="capturing">
+        <input type="file" id="image" name="image" style="display: none;" accept="image/*" required>
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="container">
+              <video autoplay="true" id="camera" width="408" height="444"></video>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <input class="btn" type="button" id="btnStart" value="Start Camera"></input>
+            <input class="btn" type="button" id="btnCapture" value="Click Image"></input>
+          </div>
+      </div>
+        <div class="container" id="id-canvas">
+          <img src="/images/personal-photo.png" alt="personal-photo" id="personal-photo">
+          <canvas id="myCanvas" width="400" height="410" style="display: none;"></canvas>
+        </div>
+    </div>
+    <div>
+      <button class="btn" id="send-verification">Send</button>
+    </div>
+  </div>
+  </form>
+</main>
 
 </body>
 </html>

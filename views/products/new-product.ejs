@@ -3,21 +3,23 @@
 <link rel="stylesheet" href="/styles/show-profile.css">
 <link rel="stylesheet" href="/styles/new-product.css">
 <link rel="stylesheet" href="/styles/forms.css">
-
+<link rel="stylesheet" href="/styles/money-overlay.css">
 <link
-      href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
-      rel="stylesheet"
-    />
+href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+rel="stylesheet"
+/>
 
 <script src="/scripts/image-preview.js" defer></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
 <script src="/scripts/map.js" defer></script>
+<script src="/scripts/money-overlay.js" defer></script>
 
 
 </head>
 <body>
   <%- include('../shared/includes/nav', {pageTitle: 'Add New Product', id: locals.uid}) %>
   <main>
+    <%- include('../shared/includes/money-overlay') %>
     <h1>Add new Product</h1>
     <%- include('../shared/includes/product-form', { submitPath: '/products', product: {
       name: '',

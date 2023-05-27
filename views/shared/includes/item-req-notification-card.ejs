@@ -1,0 +1,22 @@
+<form action="/show-item-request/<%= notification.transactionId %>" method="get">
+  <button>
+    <div>
+      <h4><%= notification.title %></h4>
+      <div id="time">
+      <p><%= notification.content %></p>
+      <time datetime="<%= notification.history %>">
+        <%= notification.history.getHours() %>:<%= notification.history.getMinutes() %>
+      </time>
+    </div>
+    <div id="date">
+      <time datetime="<%= notification.history %>">
+        <%= notification.history.toLocaleDateString("en-US", {
+          weekday: "long",
+          month: "long",
+          day: "numeric",
+          }) %>
+      </time>
+    </div>
+    </div> 
+  </button>
+</form>

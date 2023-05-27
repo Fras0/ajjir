@@ -102,6 +102,15 @@ body {
   margin: 2.5rem 2rem;
 }
 
+#user-settings a {
+  cursor: pointer;
+  margin: 2.5rem 2rem;
+}
+
+#user-settings a:hover {
+  text-decoration: underline;
+}
+
 #info-verify {
   height: 100%;
   display: grid;
@@ -134,10 +143,17 @@ body {
   justify-content: center;
 }
 
-#verify div span {
+#verify #right {
   font-size: 0.8rem;
   font-weight: 300;
   color: #06d6a0;
+  padding-left: 1rem;
+}
+
+#verify #wrong {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #E55D5D;
   padding-left: 1rem;
 }
 

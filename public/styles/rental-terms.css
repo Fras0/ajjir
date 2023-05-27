@@ -1,0 +1,179 @@
+#plan {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95%;
+  margin: 0 auto;
+  align-items: stretch;
+  gap: 5rem;
+}
+
+#prices-and-date {
+  background-color: var(--color-black);
+  border-radius: 20px;
+  width: 40%;
+}
+
+#prices-and-date h2 {
+  text-align: left;
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 2rem 2rem 0 2rem;
+}
+
+#prices-and-date h3 {
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 2rem 2rem 0 2rem;
+}
+
+#prices-and-date h6 {
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0;
+  margin-top: 0.5rem;
+  margin-left: 3rem;
+}
+
+.product-prices ul .checked {
+  transform: scale(1.1);
+  font-style: italic;
+  border: 1px solid var(--color-yellow-300);
+  background-color: var(--color-black);
+  transition: 0s;
+}
+
+#date p input {
+  text-align: center;
+}
+
+#start-date {
+  background-color: #fff8e8;
+}
+#end-date {
+  background-color: #fff8e8;
+}
+
+#cautions {
+  list-style: outside;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 1rem auto;
+  padding: 0 1.1rem;
+  text-align: left;
+  align-items: center;
+}
+
+#overdue {
+  color: #E55D5D;
+}
+
+#view-map {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-black);
+  align-items: center;
+  border-radius: 25px;
+}
+
+#view-map p {
+  margin: 0;
+  margin-top: 1rem;
+}
+
+#view-map #map {
+  width: 48rem;
+  height: 35rem;
+  margin-bottom: 2rem;
+}
+
+#form-and-map {
+  width: 95%;
+  margin: 1rem auto;
+  background-color: var(--color-black);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+#form-and-map h5 {
+  font-weight: 600;
+  font-size: 1.6rem;
+  text-align: left;
+  margin: 1rem 1.5rem;
+}
+
+#form-and-map ul {
+  margin: 0 auto 1rem auto;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* align-items: stretch; */
+}
+
+#form-and-map ul li {
+ width: 30%;
+ 
+}
+
+#form-and-map img {
+width: 100%;
+height: 15rem;
+object-fit: fill;
+border-radius: 35px;
+}
+
+#details-summary {
+  text-align: left;
+}
+
+#details-summary p {
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+#details-summary h4 {
+  font-weight: 400;
+  font-size: 2rem;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+#price-summary {
+  padding: 0.5rem 1rem;
+  width: 70%;
+  text-align: center;
+  background-color: var(--color-gray-800);
+  border-radius: 25px;
+}
+
+#price-summary hr {
+  width: 100%;
+  margin: 0;
+  margin-left: 0.25rem;
+}
+
+#price-summary div {
+  font-weight: 400;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#price-summary div p{
+  margin: 0.5rem;
+}
+
+#price-summary #insurance{
+  color: #06D6A0;
+}

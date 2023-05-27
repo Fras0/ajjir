@@ -1,0 +1,39 @@
+<%- include('../shared/includes/head' , {pageTitle: 'Profile'}) %>
+<link rel="stylesheet" href="/styles/landing.css">
+<link rel="stylesheet" href="/styles/show-profile.css">
+<link rel="stylesheet" href="/styles/buy-jj.css">
+<link rel="stylesheet" href="/styles/notifications.css">
+<link rel="stylesheet" href="/styles/money-overlay.css">
+
+
+
+<script src="/scripts/notification.js" defer></script>
+<script src="/scripts/money-overlay.js" defer></script>
+</head>
+<body>
+<%- include('../shared/includes/nav', { pageTitle: 'JPoints' ,id: id }) %>
+<main>
+  <%- include('../shared/includes/money-overlay') %>
+  <form action="/buy-jj/50" method="post">
+    <ul id="jj-list">
+      <li>
+        <img src="/images/50jj.png" alt="50jj">
+        <p>50 JJ</p>
+        <button class="btn">100 EGP</button>
+      </li>
+      <li>
+        <img src="/images/100jj.png" alt="100jj">
+        <p>100 JJ</p>
+        <button formaction="/buy-jj/100" class="btn">180 EGP</button>
+      </li>
+      <li>
+        <img src="/images/500jj.png" alt="500jj">
+        <p>500 JJ</p>
+        <button formaction="/buy-jj/500" class="btn">750 EGP</button>
+      </li>
+    </ul>
+  </form>
+</main>
+<%- include('../shared/includes/footer') %>
+</body>
+</html>

@@ -1,0 +1,49 @@
+body {
+  min-height: 60rem;
+}
+
+footer {
+  position: absolute;
+  top: 60rem
+}
+
+#jj-list {
+  list-style-type: none;
+  margin: 3rem 0;
+  padding: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--color-black);
+  border-radius: 35px;
+}
+
+#jj-list li {
+  background-color: var(--color-gray-800);
+  margin: 0 1rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+}
+
+#jj-list li img {
+  width: 15rem;
+  height: 15rem;
+  object-fit: contain;
+}
+
+#jj-list li p {
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+#jj-list li button {
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+font-size: 1.5rem;
+}
+
+

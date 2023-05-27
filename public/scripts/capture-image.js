@@ -58,6 +58,10 @@ async function snapshot() {
     dataTransfer.items.add(file);
     inputElement.files = dataTransfer.files;
 
+    const personalImage = document.getElementById("personal-photo");
+    personalImage.style.display = "none";
+    canvas.style.display = "block";
+
     // inputElement.files[0].name = img;
     // console.log(inputElement.file);
     // document.write(`<img src="${img}"/>`);

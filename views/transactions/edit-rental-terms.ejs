@@ -1,39 +1,121 @@
-<%- include('../shared/includes/head', { pageTitle: 'Show Product' }) %>
+<%- include('../shared/includes/head', { pageTitle: 'Rental Terms' }) %>
 <link rel="stylesheet" href="/styles/landing.css">
 <link rel="stylesheet" href="/styles/show-profile.css">
 <link rel="stylesheet" href="/styles/new-product.css">
+<link rel="stylesheet" href="/styles/show-product.css">
 <link rel="stylesheet" href="/styles/forms.css">
-<script src="/scripts/no-money-overlay.js" defer></script>
+<link rel="stylesheet" href="/styles/rental-terms.css">
+<link rel="stylesheet" href="/styles/money-overlay.css">
+<link rel="stylesheet" href="/styles/notifications.css">
+
+<script src="/scripts/notification.js" defer></script>
+<script src="/scripts/request-item.js" defer></script>
+<script src="/scripts/money-overlay.js" defer></script>
 
 <link
-      href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
-      rel="stylesheet"
-    />
-
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
-<script src="/scripts/map.js" defer></script>
-
-
+  href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+  rel="stylesheet"
+  />
+      
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <script src="/scripts/map.js" defer></script>
+      
+      
 </head>
 <body>
-  <%- include('../shared/includes/nav', {pageTitle: 'Add New Product', id: locals.uid}) %>
+    <%- include('../shared/includes/nav', {pageTitle: 'Rental Terms', id: locals.uid}) %>
   <main>
-    <h2>Rental Terms</h2>
-    <div id="form-and-map">
-      <form action="/rental-terms/<%= product.id %>" method="post" class="forms">
-      <p>
-          <input type="hidden" id="lng" name="longitude">
-      </p>
-      <p>
-          <input type="hidden" id="lat" name="latitude">    
-      </p>
-      <button class="btn">send reqeust</button>   
+    <%- include('../shared/includes/money-overlay') %>
+    <ul id="plan">
+      <li id="prices-and-date">
+        <h2><%= product.name %></h2>
+        <h6><%= product.description %></h6>
+        <h3>Pick Price Plan</h3>
+        <div class="product-prices">
+          <ul>
+            <li>
+              <p><%= product.price %></p>
+              <span>A Day</span>
+            </li>
+            <li>
+              <p>50</p>
+              <span>A Week</span>
+            </li>
+            <li>
+              <p>150</p>
+              <span>A Month</span>
+            </li>
+            <li>
+              <p>400</p>
+              <span>A Year</span>
+            </li>
+          </ul>
+        </div>
+        <div id="date">
+          <p>
+            <label>Start Date</label>
+            <input type="datetime-local" id="start-date" name="start-date">
+          </p>
+          <p>
+            <label>End Date</label>
+            <input type="datetime-local" id="end-date" name="end-date">
+          </p>
+        </div>
+        <ul id="cautions">
+          <li id="jj">Be sure to pick a good time for returning the Item.</li>
+          <li id="jj">Be sure to not <span id="overdue">overdue</span> the returning time, this may cause loss or your insurance.</li>
+        </ul>
+        
+      </li>
+      <li id="view-map">
+        <p id="jj">Pick Your delivery location on the map</p>
+        <div>
+          <pre id="info"></pre>
+          <div id="map"></div>
+        </div>
+      </li>
+    </ul>
+    <form action="/rental-terms/<%= product.id %>" method="POST" id="form-and-map">
+      <h5 id="jj">Order Summary</h5>
+      <input type="hidden" id="lng" name="longitude">
+      <input type="hidden" id="lat" name="latitude">    
+      <input type="hidden" id="days" name="maxDuration">    
+      <input type="hidden" id="total" name="price">    
+      <input type="hidden" id="start-date-input" name="startDate">    
+      <input type="hidden" id="end-date-input" name="endDate">    
+      <ul>
+        <li>
+          <img src="<%= product.imageUrl %>" alt="<%= product.name %>">
+        </li>
+        <li id="details-summary">
+          <h4><%= product.name %></h4>
+          <p><span id="jj">Start</span> : <span id="start-date-string"></span> </p>
+          <p><span id="jj">Due</span> : <span id="end-date-string"></span> </p>
+          <p>Delivery : <span id="jj">Ajjir</span> Delivery</p>
+        </li>
+        <li id="price-summary">
+          <div>
+            <p>Item Renting </p>
+            <span id="jj"></span>
+          </div>
+          <div>
+            <p>Shipping </p>
+            <span id="jj">5</span>
+          </div>
+          <div id="insurance">
+            <p>Insurance </p>
+            <span>5</span>
+          </div>
+          <hr>
+          <div>
+            <p>Total </p>
+            <span id="jj"></span>
+          </div>
+          
+          <button id="submit-btn" class="btn">send reqeust</button>   
+        </li>
+      </ul>
     </form>
-    <div>
-        <pre id="info"></pre>
-        <div id="map"></div>
-    </div>
-    </div>
 </main>
   <%- include('../shared/includes/footer') %>
 </body>

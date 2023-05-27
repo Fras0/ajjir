@@ -1,0 +1,82 @@
+#verify-form {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.verify {
+  width: 100%;
+  padding: 1rem 0;
+  margin: 1rem auto;
+  background-color: var(--color-black);
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.verify-title p {
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+#adding-id-card {
+  width: 90%;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+#adding-id-card div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#adding-id-card p {
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding: 0;
+  padding-left: 1.5rem;
+}
+
+#adding-id-card div img {
+  width: 23rem;
+  height: 25.5rem;
+  overflow: hidden;
+  border-radius: 15px;
+  object-fit: contain;
+}
+
+.capturing {
+  width: 90%;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 1rem 0;
+}
+
+#id-canvas {
+  width: 40%;
+}
+
+#send-verification{
+  margin: 1rem auto;
+  width: 15rem;
+}
+
+#myCanvas {
+  border-radius: 15px;
+  object-fit: contain;
+  margin: 0;
+}

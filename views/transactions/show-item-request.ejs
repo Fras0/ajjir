@@ -2,16 +2,112 @@
 <link rel="stylesheet" href="/styles/landing.css">
 <link rel="stylesheet" href="/styles/show-profile.css">
 <link rel="stylesheet" href="/styles/new-product.css">
-<link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/item-request.css">
+<link rel="stylesheet" href="/styles/money-overlay.css">
+
+
+
+<link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css"
+    type="text/css"/>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+    <script src="/scripts/map-directions.js" defer></script>
+    <script src="/scripts/money-overlay.js" defer></script>
 
 
 </head>
 <body>
-  <%- include('../shared/includes/nav', {pageTitle: 'Add New Product', id: locals.uid}) %>
+  <%- include('../shared/includes/nav', {pageTitle: 'Request Notifications View', id: locals.uid}) %>
   <main>
-    <h2>Rental Terms</h2>
-    <button>accept</button>
-    <button>reject</button>
+    <%- include('../shared/includes/money-overlay') %>
+    <ul id="inbox">
+      <li id="notification-aside-li">
+        <ul id="notification-aside">
+          <li>
+            <div id="chats-notifi">
+              <button class="btn-alt" id="chat-btn">Chats</button>
+              <button class="btn-alt" id="notifi-btn">Notifications</button>
+            </div>
+          </li>
+          <li id="notification-list">
+            <ul>
+              <% for (const notification of locals.notifications) { %>
+                <% if (notification.title === 'Item Request') { %>
+                  <li class="notification-li">
+                    <%- include('../shared/includes/item-req-notification-card' , {notification: notification}) %>
+                  </li>
+                <% } %>
+              <% } %>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li id="map-summary">
+        <ul id="map-summary-list">
+          <li id="profile-map">
+            <div id="data-profile">
+              <img src="/images/profile.png" alt="profile">
+              <h3><%= customerData.name %></h3>
+            </div>
+          </li>
+          <li id="map-view">
+            <div id="view">
+              <input type="hidden" id="origin-lng" value="<%= transaction.originLng %>">
+              <input type="hidden" id="origin-lat" value="<%= transaction.originLat %>">
+              <input type="hidden" id="dest-lng" value="<%= transaction.destLng %>">
+              <input type="hidden" id="dest-lat" value="<%= transaction.destLat %>">
+              <pre id="info"></pre>
+              <div id="map"></div>
+            </div>
+          </li>
+          <li><h5 id="jj">Order Summary</h5></li>
+          <li id="form-summary">
+              <input type="hidden" id="lng" name="longitude">
+              <input type="hidden" id="lat" name="latitude">    
+              <input type="hidden" id="days" name="maxDuration">    
+              <input type="hidden" id="total" name="price">    
+              <input type="hidden" id="start-date-input" name="startDate">    
+              <input type="hidden" id="end-date-input" name="endDate">    
+              <ul id="form-summary-list">
+                <li id="img-li">
+                  <img src="<%= product.imageUrl %>" alt="<%= product.name %>">
+                </li>
+                <li>
+                  <ul>
+                    <li id="summary-acception">
+                      <h4><%= product.name %></h4>
+                      <p>Rented for <span id="jj"><%= transaction.maxDuration %> Days</span></p>
+                      <p><span id="jj">Start</span> : <span id="start-date-string"><%= transaction.startDate %></span> </p>
+                      <p><span id="jj">Due</span> : <span id="end-date-string"><%= transaction.endDate %></span> </p>
+                      <p>Delivery : <span id="jj">Ajjir</span> Delivery</p>
+                    </li>
+                    <li id="summary-submission">
+                      <div>
+                        <p>Item Renting </p>
+                        <span id="jj"><%= transaction.price-10 %></span>
+                      </div>
+                      <div >
+                        <form action="/show-item-request/<%= transaction.id %>/accept" method="POST">
+                          <button id="submit-btn" class="btn">Accept</button>
+                        </form>
+                        <form action="/show-item-request/<%= transaction.id %>/reject" method="POST">
+                          <button id="submit-btn" class="btn">Reject</button> 
+                        </form>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
 
 </main>
   <%- include('../shared/includes/footer') %>

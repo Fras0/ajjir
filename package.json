@@ -17,11 +17,13 @@
   },
   "homepage": "https://github.com/Fras0/ajjir#readme",
   "dependencies": {
+    "@mui/x-date-pickers": "^6.5.0",
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
     "connect-mongodb-session": "^3.1.1",
     "cookie-session": "^2.0.0",
     "csurf": "^1.11.0",
+    "dayjs": "^1.11.7",
     "deep-email-validator": "^0.1.21",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.9",
