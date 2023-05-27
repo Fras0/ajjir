@@ -45,3 +45,18 @@ for (const backBtn of backBtns) {
     previousStep.style.display = "flex";
   });
 }
+
+
+const closeOverlayBtns = document.querySelectorAll("#cancel-overlay");
+
+for (const closeOverlayBtn of closeOverlayBtns) { 
+  closeOverlayBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    addProductOverlay.style.display = "none";
+    steps[0].style.display = "none";
+    steps[1].style.display = "none";
+    steps[2].style.display = "none";
+    steps[3].style.display = "none";
+    steps[4].style.display = "none";
+  });
+ }

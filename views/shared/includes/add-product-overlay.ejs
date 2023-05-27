@@ -1,148 +1,168 @@
 <div id="add-product-overlay">
-  <form action="/products" method="POSt" enctype="multipart/form-data" class="add-product-container">
-    <div class="steps" id="step-1">
+<% if (!locals.isAuth) { %>
+  <div class="auth-ver">
+      <p id="jj">You have to sign in to add your product !</p>
+      <div>
+        <a href="/login" class="btn">Sign in</a>
+        <button class="btn" id="cancel-overlay">Cancel</button>
+      </div>
+  </div>
+<% } else if (!locals.isVerified) { %>
+  <div class="auth-ver">
+    <p id="jj">You have to verify your account to add your product !</p>
+    <div id="veri">
+      <form action="/users/verification/<%= locals.uid %>" method="GET">
+        <button class="btn">Verify Your Account</button>
+      </form>
+      <button class="btn" id="cancel-overlay">Cancel</button>
+    </div>
+  </div>
+<% } else { %>
+    <form action="/products" method="POSt" enctype="multipart/form-data" class="add-product-container">
+      <div class="steps" id="step-1">
+          <button class="cancel-prod">Cancel</button>
+          <div class="text-step">
+            <p class="item-text">Add new item for renting</p>
+            <h2 class="item-step">Step 1 of 6</h2>
+          </div>
+          <div class="adding-inputs">
+            <p class="input-instruction">
+              Upload some <span id="jj">Photos</span> of your item so people can see the details , 
+              Try to spot all The features
+            </p>
+            <div>
+              <img src="/images/img-upload.png" alt="img-upload">
+              <input type="file" name="image" id="image" accept="image/*" required>
+            </div>
+          </div>
+          <div class="proceed">
+            <button class="btn">Proceed to details</button>
+          </div>
+      </div>
+      <div class="steps" id="step-2">
         <button class="cancel-prod">Cancel</button>
         <div class="text-step">
           <p class="item-text">Add new item for renting</p>
-          <h2 class="item-step">Step 1 of 6</h2>
+          <h2 class="item-step">Step 2 of 6</h2>
         </div>
         <div class="adding-inputs">
           <p class="input-instruction">
-            Upload some <span id="jj">Photos</span> of your item so people can see the details , 
-            Try to spot all The features
+            Add your item <span id="jj">Name</span>,
+             <span id="jj">Description</span> and 
+             <span id="jj">Rental Terms</span>.
+            Make sure to be clear and specific.
           </p>
           <div>
-            <img src="/images/img-upload.png" alt="img-upload">
-            <input type="file" name="image" id="image" accept="image/*" required>
+            <input type="text" name="name" id="name" placeholder="Item name" required>
+            <textarea name="description" id="item-description" placeholder="Description" required></textarea>
+            <textarea name="rentalTerms" id="rentalTerms" placeholder="Rental Terms"></textarea>
           </div>
         </div>
         <div class="proceed">
-          <button class="btn">Proceed to details</button>
-        </div>
-    </div>
-    <div class="steps" id="step-2">
-      <button class="cancel-prod">Cancel</button>
-      <div class="text-step">
-        <p class="item-text">Add new item for renting</p>
-        <h2 class="item-step">Step 2 of 6</h2>
-      </div>
-      <div class="adding-inputs">
-        <p class="input-instruction">
-          Add your item <span id="jj">Name</span>,
-           <span id="jj">Description</span> and 
-           <span id="jj">Rental Terms</span>.
-          Make sure to be clear and specific.
-        </p>
-        <div>
-          <input type="text" name="name" id="name" placeholder="Item name" required>
-          <textarea name="description" id="item-description" placeholder="Description" required></textarea>
-          <textarea name="rentalTerms" id="rentalTerms" placeholder="Rental Terms"></textarea>
+          <button class="back-prod">Back</button>
+          <button class="btn">Proceed to categories</button>
         </div>
       </div>
-      <div class="proceed">
-        <button class="back-prod">Back</button>
-        <button class="btn">Proceed to categories</button>
-      </div>
-    </div>
-    <div class="steps" id="step-3">
-      <button class="cancel-prod">Cancel</button>
-      <div class="text-step">
-        <p class="item-text">Add new item for renting</p>
-        <h2 class="item-step">Step 3 of 6</h2>
-      </div>
-      <div class="adding-inputs">
-        <p class="input-instruction">
-          You can add <span id="jj">Category</span> for your Item 
-        </p>
-        <div>
-          <select name="category" required>
-            <option disabled selected value="">--Select Category--</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Books">Books</option>
-            <option value="Tools">Tools</option>
-            <option value="Houses">Houses</option>
-            <option value="Cars">Cars</option>
-          </select>
+      <div class="steps" id="step-3">
+        <button class="cancel-prod">Cancel</button>
+        <div class="text-step">
+          <p class="item-text">Add new item for renting</p>
+          <h2 class="item-step">Step 3 of 6</h2>
         </div>
-      </div>
-      <div class="proceed">
-        <button class="back-prod">Back</button>
-        <button class="btn">Proceed to Maps</button>
-      </div>
-    </div>
-    <div class="steps" id="step-4">
-      <button class="cancel-prod">Cancel</button>
-      <div class="text-step">
-        <p class="item-text">Add new item for renting</p>
-        <h2 class="item-step">Step 4 of 6</h2>
-      </div>
-      <div class="adding-inputs">
-        <p class="input-instruction">
-          Choose current <span id="jj">Location</span> or Pick on the Map
-        </p>
-        <div>
-          <p>
-            <input type="hidden" id="lng" name="longitude">
-          </p>
-          <p>
-            <input type="hidden" id="lat" name="latitude">
+        <div class="adding-inputs">
+          <p class="input-instruction">
+            You can add <span id="jj">Category</span> for your Item 
           </p>
           <div>
-            <pre id="info"></pre>
-            <div id="map"></div>
+            <select name="category" required>
+              <option disabled selected value="">--Select Category--</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Books">Books</option>
+              <option value="Tools">Tools</option>
+              <option value="Houses">Houses</option>
+              <option value="Cars">Cars</option>
+            </select>
           </div>
         </div>
-      </div>
-      <div class="proceed">
-        <button class="back-prod">Back</button>
-        <button class="btn">Proceed to Prices</button>
-      </div>
-    </div>
-    <div class="steps" id="step-5">
-      <button class="cancel-prod">Cancel</button>
-      <div class="text-step">
-        <p class="item-text">Add new item for renting</p>
-        <h2 class="item-step">Step 5 of 6</h2>
-      </div>
-      <div class="adding-inputs">
-        <p class="input-instruction">
-          Set your <span id="jj">Prices</span> for your item
-        </p>
-        <div>
-          <p>
-            <input type="number" name="price" id="dayPrice" placeholder="Day Price" >
-            <span id="jj">per</span> 
-            <span class="time-duration">Day</span>
-          </p>
-          <p>
-            <input type="number" name="weekPrice" id="weekPrice" placeholder="Week Price" >
-            <span id="jj">per</span> 
-            <span class="time-duration">Week</span>
-          </p>
-          <p>
-            <input type="number" name="monthPrice" id="monthPrice" placeholder="Month Price" >
-            <span id="jj">per</span> 
-            <span class="time-duration">Month</span>
-          </p>
-          <p>
-            <input type="number" name="yearPrice" id="yearPrice" placeholder="Year Price" >
-            <span id="jj">per</span> 
-            <span class="time-duration">Year</span>
-          </p>
+        <div class="proceed">
+          <button class="back-prod">Back</button>
+          <button class="btn">Proceed to Maps</button>
         </div>
       </div>
-      <div class="proceed">
-        <button class="back-prod">Back</button>
-        <button class="btn">Ajjir</button>
+      <div class="steps" id="step-4">
+        <button class="cancel-prod">Cancel</button>
+        <div class="text-step">
+          <p class="item-text">Add new item for renting</p>
+          <h2 class="item-step">Step 4 of 6</h2>
+        </div>
+        <div class="adding-inputs">
+          <p class="input-instruction">
+            Choose current <span id="jj">Location</span> or Pick on the Map
+          </p>
+          <div>
+            <p>
+              <input type="hidden" id="lng" name="longitude">
+            </p>
+            <p>
+              <input type="hidden" id="lat" name="latitude">
+            </p>
+            <div>
+              <pre id="info"></pre>
+              <div id="map"></div>
+            </div>
+          </div>
+        </div>
+        <div class="proceed">
+          <button class="back-prod">Back</button>
+          <button class="btn">Proceed to Prices</button>
+        </div>
       </div>
-    </div>
-    <div class="steps" id="step-6">
-      <img src="/icons/congrats.svg" alt="congrats">
-      <h3>Congrats</h3>
-      <p>
-        Your item has been published successfully!
-      </p>
-      <button type="submit" class="btn">Thanks</button>
-    </div>
-  </form>
+      <div class="steps" id="step-5">
+        <button class="cancel-prod">Cancel</button>
+        <div class="text-step">
+          <p class="item-text">Add new item for renting</p>
+          <h2 class="item-step">Step 5 of 6</h2>
+        </div>
+        <div class="adding-inputs">
+          <p class="input-instruction">
+            Set your <span id="jj">Prices</span> for your item
+          </p>
+          <div>
+            <p>
+              <input type="number" name="price" id="dayPrice" placeholder="Day Price" >
+              <span id="jj">per</span> 
+              <span class="time-duration">Day</span>
+            </p>
+            <p>
+              <input type="number" name="weekPrice" id="weekPrice" placeholder="Week Price" >
+              <span id="jj">per</span> 
+              <span class="time-duration">Week</span>
+            </p>
+            <p>
+              <input type="number" name="monthPrice" id="monthPrice" placeholder="Month Price" >
+              <span id="jj">per</span> 
+              <span class="time-duration">Month</span>
+            </p>
+            <p>
+              <input type="number" name="yearPrice" id="yearPrice" placeholder="Year Price" >
+              <span id="jj">per</span> 
+              <span class="time-duration">Year</span>
+            </p>
+          </div>
+        </div>
+        <div class="proceed">
+          <button class="back-prod">Back</button>
+          <button class="btn">Ajjir</button>
+        </div>
+      </div>
+      <div class="steps" id="step-6">
+        <img src="/icons/congrats.svg" alt="congrats">
+        <h3>Congrats</h3>
+        <p>
+          Your item has been published successfully!
+        </p>
+        <button type="submit" class="btn">Thanks</button>
+      </div>
+    </form>
+    <% } %>
 </div>

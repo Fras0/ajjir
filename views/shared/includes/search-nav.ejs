@@ -7,6 +7,20 @@
         <button id="search"><img src="icons/search.svg" alt="search"></button>
       </form>
     </li>
+    <% if(locals.isAuth){ %>
+      <li class="nav-items">
+        <section id="money">
+          <a href="/buy-jj/<%= id %>">
+            <img src="/icons/jpoint.svg" alt="jpoints">
+            <span><%= locals.jPoints %> <span id="jj"><b>JJ</b></span></span>
+          </a>
+          <a href="" id="add-money">
+            <img src="/icons/balance.svg" alt="balance">
+            <span><%= locals.balance %> <span style="color: #B48B00;"><b>EGP</b></span></span>
+          </a>
+        </section>
+      </li>
+    <% } %>
     <li>
       <% if(!locals.isAuth){ %>
         <a class="btn" href="/login">Sign in</a>

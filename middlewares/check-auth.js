@@ -19,6 +19,7 @@ async function checkAuthStatus(req, res, next) {
   }
 
   if (user) {
+    res.locals.isVerified = user.isVerified;
     res.locals.jPoints = user.points;
     res.locals.balance = user.balance;
   }

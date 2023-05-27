@@ -3,6 +3,10 @@ body {
   min-height: auto;
 }
 
+.notifi-box {
+  right: 10rem;
+}
+
 #profile-overview {
   width: 90%;
   margin: 0 auto;

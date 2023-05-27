@@ -9,6 +9,50 @@
   display: none;
 }
 
+#add-product-overlay .auth-ver {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-black);
+  padding: 20px;
+  border-radius: 50px;
+  width: 50%;
+  height:50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#add-product-overlay .auth-ver p {
+  font-size: 1.5rem;
+}
+
+#add-product-overlay .auth-ver div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#add-product-overlay .auth-ver #veri form button {
+  width: 100%;
+}
+
+#add-product-overlay .auth-ver #veri #cancel-overlay{
+  width: 30%;
+}
+
+#add-product-overlay .auth-ver div a {
+  width: 40%;
+  text-align: center;
+}
+
+#add-product-overlay .auth-ver div button {
+  width: 40%;
+}
+
 #add-product-overlay .add-product-container {
   position: absolute;
   top: 50%;

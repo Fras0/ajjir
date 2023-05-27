@@ -2,8 +2,7 @@
 const inputLng = document.getElementById("lng");
 const inputLat = document.getElementById("lat");
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiZnJhcy1hc2thciIsImEiOiJjbGhic3I3ZmowNmd3M2ZwN2V2dXdyOTY4In0.hhf2C8ZWMt8O2pBxomB71g";
+mapboxgl.accessToken = "MAPBOX_ACCESS_TOKEN";
 
 let currentLng;
 let currenLat;

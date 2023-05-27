@@ -2,14 +2,27 @@
 <link rel="stylesheet" href="/styles/navigation.css">
 <link rel="stylesheet" href="/styles/notifications.css">
 <link rel="stylesheet" href="/styles/all-products.css">
+<link rel="stylesheet" href="/styles/money-overlay.css">
 <script src="/scripts/filter-search.js" defer></script>
 <script src="/scripts/notification.js" defer></script>
+<script src="/scripts/money-overlay.js" defer></script>
+
 </head>
 <body>
   <header>
     <%- include('../shared/includes/search-nav', {pageTitle : 'All products', id: locals.uid}) %>
+    <div id="sort">
+      <div id="sort-icon">
+        <img src="/icons/sort.svg" alt="sort">
+        <p>Sort</p>
+      </div>
+      <div>
+        <img src="/icons/row-vertical.svg" alt="row-vertical">
+      </div>
+    </div>
   </header>
   <main>
+    <%- include('../shared/includes/money-overlay') %>
     <!-- <a href="/products/new" class="btn">Add</a> -->
     <div id="filters-items">
       <aside>
@@ -22,6 +35,15 @@
               <li>Houses</li>
               <li>Electronics</li>
               <li>Books</li>
+            </ul>
+          </li>
+          <li id="item-reviewa">
+            <h3>Item Review</h3>
+            <ul>
+              <li><img src="/icons/4s.svg" alt="4s"></li>
+              <li><img src="/icons/3s.svg" alt="3s"></li>
+              <li><img src="/icons/2s.svg" alt="2s"></li>
+              <li><img src="/icons/1s.svg" alt="1s"></li>
             </ul>
           </li>
           <li id="status">
@@ -50,6 +72,7 @@
           </li>
         </ul>
       </aside>
+      
       <ul id="products-grid">
         <% for (const product of products){ %>
              <li>

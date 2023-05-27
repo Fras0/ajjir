@@ -1,5 +1,5 @@
 const stripe = require("stripe")(
-  "sk_test_51N8NXiC5tPhldoVqD7SSLeWDizu93PaCOiZa8HPEIVzPwdhd96cEhHAsX86hiDhqRyb9UJtgqWKEfEVXqKDX2jvW00jaCtnMM5"
+  process.env.STRIPE_KEY
 );
 
 const db = require("../data/database");

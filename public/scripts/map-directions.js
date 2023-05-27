@@ -3,8 +3,8 @@ const originLatElement = +document.getElementById("origin-lat").value;
 const destinationLngElement = +document.getElementById("dest-lng").value;
 const destinationLatElement = +document.getElementById("dest-lat").value;
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiZnJhcy1hc2thciIsImEiOiJjbGhic3I3ZmowNmd3M2ZwN2V2dXdyOTY4In0.hhf2C8ZWMt8O2pBxomB71g";
+mapboxgl.accessToken = "MAPBOX_ACCESS_TOKEN";
+
 const map = new mapboxgl.Map({
   container: "map",
   // Choose from Mapbox's core styles, or make your own style with Mapbox Studio

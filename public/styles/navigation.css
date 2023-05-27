@@ -1,6 +1,6 @@
 nav ul {
   padding: 0 2rem;
-  width: 80%;
+  width: 95%;
   margin: var(--space-8) auto;
   list-style: none;
   display: flex;
@@ -14,6 +14,31 @@ nav ul {
 nav h1 {
   font-weight: 250;
   font-size: 2.5rem;
+}
+
+.nav-items {
+  width: 20%;
+}
+
+.nav-items #money {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.nav-items #money a {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-items #money img{
+  width: 2rem;
+  height: 2rem;
+  
 }
 
 nav input {

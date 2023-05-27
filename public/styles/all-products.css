@@ -4,7 +4,41 @@ body {
 
 .notifi-box {
   top: 5.25rem;
-  right: 14.5rem;
+  right: 8rem;
+}
+
+header #sort {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  margin-left: 19rem;
+  padding: 1.8rem 0.5rem;
+  background-color: var(--color-black);
+  border: 1px solid var(--color-gray-100);
+  border-radius: 15px;
+  width: 77.3%;
+  height: 2.5rem;
+  font-size: 1.1rem;
+}
+
+header #sort #sort-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+header #sort #sort-icon img {
+  width: 2rem;
+  height: 2rem;
+}
+
+header #sort p {
+  padding: 0 0.2rem;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 main {
